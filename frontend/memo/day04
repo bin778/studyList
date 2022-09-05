@@ -9,7 +9,7 @@
 	<option>		<select> 아래에 항목들에 대한 태그
 
 폼 태그
-<form
+<form>
 	action="https://daum.net/search.jsp"
 	method="get"
 	name="person_info"
