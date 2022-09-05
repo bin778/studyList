@@ -32,3 +32,6 @@ IntelliJ
    	Atom One Dark Theme      	아톰 IDE 기반 색상 VS CODE 다크 테마 
 
    	Live Server		HTML을 로컬 호스트(localhost)로 보여주는 가상 서버
+	
+Go Live 실행 단축키
+	Alt + L, Alt + O
