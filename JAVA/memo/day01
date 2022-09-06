@@ -1,0 +1,54 @@
+JAVA
+	JVM(Java Virtual Machine)
+		자바가상운영체제
+		JVM이 실질적으로 자바 명령어로 된 코드를 실행시켜주는 역할을 한다.
+	JRE(Java Runtime Environment)
+		JVM을 생성해주는 역할을 한다
+		JRE가 JVM의 실행 환경을 구현한다
+		JRE는 여러 파일들(라이브러리)들을 가지고 있다
+	JDK(Java Development Kit)
+		JRE외에 필요한 여러 도구들을 갖고 있다
+		(javac....)
+
+JAVA 설치유무 확인하기
+	cmd창 > java -version >
+	실행할수없는 외부또는 배치파일입니다...... --> 설치안됨
+	자바의 버전이 나온다 --> 설치됨
+
+	cmd창 > javac -version >
+	버전정보가 나온다 --> 설치됨
+	버전정보XX --> 설치안됨
+
+JAVA 설치
+	jdk 11버전 설치
+		chrome jdk 11 검색 > 가장 위에 있는 링크 >
+		window / macos에 따라서 우측 링크 클릭 >
+		라이센스 동의 후 Download 버튼 클릭 >
+		로그인 > 설치파일이 다운로드 된다 > 다운로드한 설치파일 실행
+		Next > Finish > 설치 완료
+
+IDE(Intergrated Development Environment: 통합개발환경)
+	개발을 도와주는 도구(소프트웨어)
+
+eclipse 무설치 버전
+	IDE 중 하나로 다양한 단축키를 제공하기 때문에 쉽게 코드 작성이 가능하다
+	구글 크롬 eclipse 검색 > 가장 위에있는 링크 클릭 > Download(설치버전) 버튼 아래쪽의 Download packages 링크 클릭 >
+	Eclipse IDE for JAVA Developers 의 우측 본인 운영체제에 맞는 링크 클릭 > Download 버튼 클릭
+
+컴파일
+	사람의 언어로된 명령어를 컴퓨터가 알아들을 수 있는 기계어로 번역하는 작업
+System.out.println();	-->	0100100111101010111
+
+컴파일러
+	사람의 명령어를 컴퓨터가 알아들을 수 있는 기계어로 작업하는 장치(javac)
+
+프로젝트 만들기
+	File > New > java project > 이름설정, Module 체크가 해제되었는지 확인 > Finish
+	단축키 : alt + shift + n > 아래화살표 > 엔터 > 이름설정 > 엔터
+
+패키지 만들기
+	src 폴더 우클릭 > New > Package > 이름설정 > Finish
+
+클래스 만들기(클래스 이름은 대문자로 쓰자)
+	패키지 우클릭 > New > Class > 이름설정 > Finish
+  
