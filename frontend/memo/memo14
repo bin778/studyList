@@ -48,9 +48,22 @@
     함수		var h = function() {};
     
 동적 사용
-  	 var a = "Hello";	// 최초 선언시 문자열 변수로 사용
-   	 a = 123		// 이제는 숫자형
-   	 a = true;		// 이제는 논리형
-   	 a = [1,2,3];	 // 이제는 배열
+  	 var a = "Hello";	  // 최초 선언시 문자열 변수로 사용
+   	 a = 123		        // 이제는 숫자형
+   	 a = true;		      // 이제는 논리형
+   	 a = [1,2,3];	      // 이제는 배열
    	 a = function() {};	// 하다하다 함수까지 ... @,.@
      
+자바스크립트 연산자
+    산술연산자       + - * /     %
+    문자열연산       문자열 + 문자열, 숫자 + 문자열, 문자열 + 숫자 ... 문자열 + ...
+    증감연산자       숫자를 1 or n 씩 증가(누적) i++;
+    삼항연산자       a == b ? true : false;
+    논리연산자       a && b, a || b;
+                    true && true = true      true || true = true
+                    true && false = false    true || false = true
+                    false && true = false    false || true = true
+                    false && false = false   false || false = false
+    부정연산자       !true, !false;
+    비교연산자       ==, ===, !=, !==
+    대입연산자       =
