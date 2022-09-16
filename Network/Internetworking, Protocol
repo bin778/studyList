@@ -1,0 +1,23 @@
+인터페이스(Interface) : 같은 호스트에 우치한 상하위 계층 사이의 규칙
+서비스(Service) : 하위 계층이 상위 계층에 제공하는 인터페이스
+
+인터넷 계층 구조
+IP(Internet Protocol)는 네트워크 계층, TCP(Transmission Control Protocol)와 UDP(User Datagram Protocol)은 전송 계층
+
+ex) FTP 서비스의 구조
+호스트1          호스트2
+FTP 클라이언트   FTP 서버
+TCP             TCP
+IP              IP
+LAN 카드        LAN 카드
+   이더넷(Ethernet)
+   
+인터네트워킹(Internetworking) : 네트워크 끼리의 연결
+게이트웨이(Gateway) : 인터네트워킹을 수항하는 시스템
+
+프로토콜(Protocol) : 서로 다른 호스트에 위치한 동일 계층 끼리의 통일 규칙. 통신 시스템이 데이터를 교환하기 위해 사용되는 통신 규칙
+
+발신자(sender) : 신호를 보낸다.
+수신자(receiver) : 신호를 받는다.
+진원자(source) : 메세지를 처음으로 보내는 사람
+목적지(destination) : 메시지를 최종적으로 받는 사람
