@@ -15,7 +15,7 @@ const request = {
             if(users[i].id === id) item = users[i];
         }
 
-        if(item && item.password === password) return item.name;
-        else return false;
+        if(item && item.password === password) return item;
+        else return null;
     }
 }
