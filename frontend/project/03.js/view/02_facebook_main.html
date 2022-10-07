@@ -47,107 +47,68 @@
       </header>
       <main>
         <section class="container">
-          <ul class="list">
-            <li>
-              <div class="card">
-                <div class="head">
-                  <div>
-                    <img class="logo" src="../images/edu_icon.png" alt="광고 아이콘" />
-                    <span class="title">에듀윌</span>
-                    <img class="more" src="../images/more.png" alt="더보기 메뉴">
-                  </div>
-                  <div class="text">
-                    <p>🚨기간한정 특별 이벤트🚨</p>
-                    <p>초시생 필수템, 만화입문서 무료배포!</p>
-                    <p class="blue">#합격자수 1위 #에듀윌 #공인중개사</p>
-                  </div>
-                </div>
-                <div class="body">
-                  <div class="image">
-                    <img src="../images/sample-image.jpg" alt="광고 메인 이미지" />
-                  </div>
-                  <div class="text">
-                    <div>
-                      <p class="grey sm">EDUWILL.NET</p>
-                      <p class="bold">입문교재 선착순 무료신청</p>
-                      <p class="grey">합격자 수 1위 에듀윌 공인중개사</p>
-                    </div>
-                    <button>더 알아보기</button>
-                  </div>
-                </div>
-                <div class="foot">
-                  <div class="btn-box active">
-                    <div>
-                      <img src="../images/home.png" alt="홈 바로가기"/>
-                      <span class="btn-text">좋아요</span>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <div>
-                      <img src="../images/youtube.png" alt="동영상 바로가기"/>
-                      <span class="btn-text">댓글 달기</span>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <div>
-                      <img src="../images/people.png" alt="사용자 바로가기" />
-                      <span class="btn-text">공유 하기</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="card">
-                <div class="head">
-                  <div>
-                    <img class="logo" src="../images/edu_icon.png" alt="광고 아이콘" />
-                    <span class="title">에듀윌</span>
-                    <img class="more" src="../images/more.png" alt="더보기 메뉴">
-                  </div>
-                  <div class="text">
-                    <p>🚨기간한정 특별 이벤트🚨</p>
-                    <p>초시생 필수템, 만화입문서 무료배포!</p>
-                    <p class="blue">#합격자수 1위 #에듀윌 #공인중개사</p>
-                  </div>
-                </div>
-                <div class="body">
-                  <div class="image">
-                    <img src="../images/sample-image.jpg" alt="광고 메인 이미지" />
-                  </div>
-                  <div class="text">
-                    <div>
-                      <p class="grey sm">EDUWILL.NET</p>
-                      <p class="bold">입문교재 선착순 무료신청</p>
-                      <p class="grey">합격자 수 1위 에듀윌 공인중개사</p>
-                    </div>
-                    <button>더 알아보기</button>
-                  </div>
-                </div>
-                <div class="foot">
-                  <div class="btn-box active">
-                    <div>
-                      <img src="../images/home.png" alt="홈 바로가기"/>
-                      <span class="btn-text">좋아요</span>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <div>
-                      <img src="../images/youtube.png" alt="동영상 바로가기"/>
-                      <span class="btn-text">댓글 달기</span>
-                    </div>
-                  </div>
-                  <div class="btn-box">
-                    <div>
-                      <img src="../images/people.png" alt="사용자 바로가기" />
-                      <span class="btn-text">공유 하기</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>            
+          <ul id="ul-frame" class="list">           
           </ul>
         </section>
       </main>
   </body>
 </html>
+
+<!-- 
+  HTML template이란? 반복적인 HTML 부분을 화면에서는 보이지 않는 template로 만들어두고
+  서버에서 전달되는 JSON과 연결하여 반복적인 tag를 만들어 내는 기법
+  참조 블로그: https://youngbae10000.tistory.com/50
+
+  교체할 부분을 파싱하여 수정해보자...
+  교체할 내용을 {icon}, {title}, {label}, {company}, {text}, {img}
+ -->
+
+<template id ="temp-card" type="text/template">
+  <div class="card">
+    <div class="head">
+      <div>
+        <img class="logo" src="{icon}" alt="광고 아이콘" />
+        <span class="title">{title}</span>
+        <img class="more" src="../images/more.png" alt="더보기 메뉴">
+      </div>
+      <div class="text">
+        {label}
+      </div>
+    </div>
+    <div class="body">
+      <div class="image">
+        <img src="{img}" alt="광고 메인 이미지" style="width: 100%;" />
+      </div>
+      <div class="text">
+        <div>
+          <p>{company}</p>
+          <p>{text}</p>
+        </div>
+        <button>더 알아보기</button>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="btn-box active">
+        <div>
+          <img src="../images/home.png" alt="홈 바로가기"/>
+          <span class="btn-text">좋아요</span>
+        </div>
+      </div>
+      <div class="btn-box">
+        <div>
+          <img src="../images/youtube.png" alt="동영상 바로가기"/>
+          <span class="btn-text">댓글 달기</span>
+        </div>
+      </div>
+      <div class="btn-box">
+        <div>
+          <img src="../images/people.png" alt="사용자 바로가기" />
+          <span class="btn-text">공유 하기</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script src="../js/02_main_req.js"></script>
+<script src="../js/02_main.js"></script>
