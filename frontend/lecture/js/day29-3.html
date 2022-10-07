@@ -24,11 +24,11 @@
         document.body.appendChild(section);
 
         // before : 선택한 노드의 앞에 추가한다.
-        // <section> 뒤에 텍스트 노드를 추가해보자
+        // <section> 앞에 텍스트 노드를 추가해보자
         const t2 = document.createTextNode("<section> 태그 앞에 텍스트");
         section.before(t2);
 
-        // before : 선택한 노드의 뒤에 추가한다.
+        // after : 선택한 노드의 뒤에 추가한다.
         // <section> 뒤에 텍스트 노드를 추가해보자
         const t3 = document.createTextNode("<section> 태그 뒤에 텍스트");
         section.after(t3);
