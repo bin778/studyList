@@ -46,4 +46,42 @@ redhat, CentOS, fedora / debian, Ubuntu, KALI / SUSE, LinuxMint, Android 등등
   - 장점 : 유닉스와 완벽 호환, 공개/무료 OS, 안정적, 강력한 보안과 네트워킹, 풍부한 개발환경, 다중 사용자/작업
   - 단점 : 사용자의 숙련 기술 필요, 기술지원 부족, 특정 하드웨어 지원 부족, 한글입출력 어려움
   
-리눅스의 활용 : 개인용, 서버(클라우드), 슈퍼 컴퓨터, 임베디드 시스템(휴대폰, 스마트TV 등)
+리눅스의 활용 : 개인용 컴퓨터, 서버(클라우드) 컴퓨터, 슈퍼 컴퓨터, 임베디드 시스템(휴대폰, 스마트TV 등)
+
+리눅스의 구조 : Hardware - Kernel(명령어 처리) - Shell(명령어 해석기) - Application - 사용자
+
+리눅스의 3요소
+  1요소 : Kernel
+  2요소 : Shell
+  3요소 : 파일 시스템
+  
+Kernel
+  - 운영체제의 핵심
+  - 셀과 하드웨어 간 인터페이스 역할
+  - 주로 디바이스 관리, 프로세스 관리, 메모리 관리, 시스템 콜 제공
+  - 또한 커널은 세자리 버전이 있다.
+  ex) Version 5.10.43(주 버전(큰 기능 변화). 부 버전(짝수: 안정, 홀수: 불안정). 패치 레벨)
+  
+Shell
+  - 사용자와 커널 간 인터페이스 역할
+  - 명령어 해석기
+  - 프로그래밍 언어
+  
+리눅스의 설치
+  - 가상화 프로그램인 VMWare를 이용하여 CentOS를 설치한다.
+  - 준비물 : VMWare Workstation, CentOS 7.iso
+  - VMWare 설정
+    1) File > New Virtual Machine 선택
+    2) Typical > I will install the operating system later. 선택
+    3) Linux > CentOS 7 64-bit 선택
+    4) 가상 머신 이름, 파일 경로 지정
+    5) 설치할 공간과 파일 형태 선택
+    6) Customize Hardware... 에서 Memory, Processor, ISO 파일 지정
+  - CentOS 설치
+    7) Install CentOS 7 선택하고 Enter키
+    8) 한국어 선택하고 <진행> 클릭
+    9) 소프트웨어 선택 > GNOME 데스크탑 체크
+    10) 네트워크 및 호스트명 > 켬으로 체크
+    11) 설치하는 동안 root 암호 , 사용자 계정 설정
+    12) 재부팅 후 라이센스 동의 및 확인
+    13) 로그인 후 초기 설정
