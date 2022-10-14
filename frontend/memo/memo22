@@ -1,0 +1,115 @@
+리액트(React)
+	React는 웹 브라우저의 UI를 구현하는 라이브러리(프레임워크)로 기본적으로 
+	CSS, HTML, Javascript 개발언어를 이용한 컴포넌트 기반 프론트엔드 개발 언어
+
+React 로드맵
+	HTML -> CSS -> GitHub -> JavaScript -> React Component -> React Hooks ->
+	상태관리 -> 패키지 관리 -> CSS 전처리기 (-> CSS 설계 -> 라우팅 -> 상태관리 -> 유틸리티 -> 빌드도구)
+
+프레임워크는 내가 개발할 때 환경에 종속되서 개발하는 경우를 말한다.
+라이브러리는 내가 개발하는 언어에 추가로 파일을 연결하여 개발하는 경우를 말한다.
+
+특징
+	선언형 프로그래밍이다.
+	컴포넌트 기반 프로그래밍이다.
+	컴포넌트의 확장성/재사용성이 높다.
+개요
+	2013년 페이스북 소프트웨어 엔지니어 Jordan Walk에 의해 탄생
+	React 컴포넌트 작성을 손쉽게 하는 XML 구문이 바로 JSX이다. .js .jsx
+	컴포넌트에 속성(Props)을 전달하고 상태(State)를 관리하여 화면을 표현한다.
+	2015년 CS6 class 지원
+	2017년 React v16.0 업데이트
+	2019년 React Hooks 공개
+
+Virtual DOM(Document Object Model)
+	DOM은 HTML과 자바스크립트를 이어주는 공간으로,
+	내가 작성한 HTML을 자바스크립트가 이해할 수 있도록 객체(object)로 변환
+	
+React에서 Virtual DOM 역할
+	React에서 Virtual DOM을 사용하는 가장 큰 이유는 성능적으로 빠르다는 것.
+	즉, 다시 말해 성능을 빠르게 하기 위하여 Virtual DOM을 사용했다.
+
+	정확히는 DOM 조작 자체가 성능이 느리거나 문제가 있는 것이 아니라
+	DOM 조작 이후 화면에 그려지기 전까지의 과정이 느리다는 것이다.
+	이를 해결하는 방법으로 React에서는 Virtual DOM 기술을 사용하였다.
+
+일반적인 과정
+	HTML 파싱 -> DOM 트리 생성 -> CSS 스타일 적용 -> Reader 트리 생성 
+	-> 레이아웃 구성 -> 페이팅 -> 화면에 표시
+
+위의 열련의 과정에서 Virtual DOM에서 미리 해당 과정을 진행한다.
+	DOM 트리 -> CSS 스타일 적용 -> Render 트리 생성 -> 레이아웃 구성
+
+DOM 랜더링
+	DOM 트리, Style 규칙 생성 -> Render Tree -> Layout -> Painting
+
+설치순서
+	1. 리액트를 설치할 폴더로 이동
+	2. 리액트 설치 시작
+	3. 리액트 실행
+	4. 불필요한 파일 삭제
+	5. App.js 내용 삭제
+ 	6. 실행 확인
+
+1. 설치 사전 준비
+	node.js 설치 및 버전 확인 : node -v(현재 기준 16.x.x 버전 이상 사용 권장)
+	node 다운로드 : https://nodejs.org/ko/
+		win	node-v16.xxxx.msi
+		mac	node-v16.xxxx.pkg
+
+	npm -v 패키지 관리		npm install -g create-react-app
+
+2. 리액트 설치
+	npm install npx -g
+	npx -v	확장된 패키지 관리	
+	npx install -g create-react-app {my app name}
+	npx create-react-app ./
+
+Windows OS에서 bash 쉘 사용하기 위한 설치
+	https://git-scm.com/	bash(Git-2.37.0-64-bit.exe) 다운로드 및 설치
+
+리액트 블로그 : www.daleseo.com/create-reac-app
+
+리액트 공식 홈페이지
+	create-react-app.dev
+	ko.reactjs.org/docs/create-a-new-react-app.html
+
+3. 리액트 실행
+	npm run start
+
+	아래와 같이 출력되면 성공 그리고 웹브라우저에서 화면이 표시된다.
+	Compiled successfully!!
+	.....
+
+4. 불필요한 파일 삭제
+	logo192.png
+	logo512.png
+	App.test.js
+	logo.svg
+	reportWebVitals.js
+	serviceWorker.js
+	setupTests.js
+  
+5. 파일 수정
+App.js =>
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">Hello World!</div>
+  );
+}
+
+index.js =>
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+export default App;
