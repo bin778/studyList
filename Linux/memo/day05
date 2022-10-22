@@ -1,17 +1,46 @@
 - 하드디스크 추가
-01. PC에 HDD 장착
+1. PC에 HDD 장착
   #fdisk -l: PC에 하드디스크가 정상적으로 설치되었는지 확인
-02. 파티션 나누기
+2. 파티션 나누기
   #fdisk /dev/sdc: 하드디스크 파티션 나누기
   n -> p -> 1 -> 2048 -> 나눌 숫자(예를 들어 4000인 파티션을 2000으로 입력하면 50% 나눠짐)
-03. 파일 시스템 생성
+3. 파일 시스템 생성
   #mkfs.xfs /dev/sdc1: 파일 시스템 생성
-04. 마운트
+4. 마운트
   #mount /dev/sdc1 /home/hdd1: 하드디스크 마운트(오류가 날 경우 -> #mount -f /dev/sdc1 /home/hdd1)
-05. 자동 마운트
+5. 자동 마운트
   - 설정 파일: /etc/fstab 
   /dev/sdc1     /home/hdd1      xfs     defaults      0 0 -> 절대 오타가 나오지 않도록 주의!!
   
 - 하드디스크 삭제
 #fdisk /dev/sdc: 하드디스크 파티션 설정
 d: 하드디스크가 삭제된다. 경고 메시지 없이 삭제되므로 삭제하기 전에 반드시 확인할 것!!
+
+- /etc/fstab 오타로 인해 부팅이 안 될 경우
+Give root password for maintenance
+(or type Control-D to continue): root와 비밀번호 입력
+# mount -o rw,remount /
+# vi etc/fstab을 입력하고 오타난 부분 수정
+
+LVM(Logical Volume Manager)
+  리눅스의 저장 공간을 유연하게 관리하기 위한 커널의 한 부분
+1. 파티션 나누기
+  - LVM 타입(-t -> 8e)
+2. PV(Physical Volume) 생성
+  #pvcreate [장치명]
+  #pvcreate /dev/sdd1 /dev/sde1
+3. VG(Volume Group) 생성
+  #vgcreate [그룹명] /dev/sdd1 /dev/sde1
+  #vgcreate myvg /dev/sdd1 /dev/sde1
+4. LV(Logical Volume) 생성 -> # lvcreate -n mylv -l 100%FREE myvg
+5. 파일 시스템 생성 -> # mkfs.xfs /dev/myvg/mylv
+6. 마운트 -> # mount /dev/myvg/mylv /mnt -> 자동 마운트
+
+미션
+- HDD(20GB) 3개 추가
+- 총 60GB
+- VG명: myvg1
+- LV명: mylv1
+
+- 마운트 포인트: /home/lvm
+- 자동 마운트
