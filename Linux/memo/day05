@@ -1,8 +1,8 @@
 - 하드디스크 추가
-1. PC에 HDD 장착
+1. PC에 HDD 장착(VMWare에서 설정)
   #fdisk -l: PC에 하드디스크가 정상적으로 설치되었는지 확인
-2. 파티션 나누기
-  #fdisk /dev/sdc: 하드디스크 파티션 나누기
+
+2. 하드디스크 파티션 나누기(#fdisk /dev/sdc: )
   n -> p -> 1 -> 2048 -> 나눌 숫자(예를 들어 4000인 파티션을 2000으로 입력하면 50% 나눠짐)
 3. 파일 시스템 생성
   #mkfs.xfs /dev/sdc1: 파일 시스템 생성
@@ -42,5 +42,20 @@ LVM(Logical Volume Manager)
 - VG명: myvg1
 - LV명: mylv1
 
+- 파일 시스템 생성 -> # mkfs.xfs /dev/myvg1/mylv1
 - 마운트 포인트: /home/lvm
 - 자동 마운트
+
+
+하드디스크 용량 추가
+1. #fdisk /dev/sdi
+  n -> p -> 1 -> 2048 -> 나눌 숫자
+  t -> 8e
+
+2. #pvcreate /dev/sdi1
+3. #vgextend myvg /dev/sdi1
+4. #pvdisplay에서 PE를 확인
+
+5. #lvextend -l +5119(PE) /dev/myvg/mylv
+6. #fs_growfs /dev/myvg/mylv: 하드디스크 용량 재검색(언마운트 상태에서 할 것)
+7. 자동 마운트
