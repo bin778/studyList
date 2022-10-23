@@ -1,6 +1,7 @@
 RAID(Redundant Array of Independent Disks)
 - 여러 개의 하드디스크를 하나처럼 사용하게 하는 기술. 예를 들어 1TB 하드디스크를 2개를 묶어 2TB로 사용 가능.
 - RAID Level: Linear, 0(Striping), 1(Mirroring), 2(ECC), 3~4(Parity Bit), 5, 6, 10(0+1).
+
 - Linear RAID: 최소 2개 이상의 하드디스크를 하나처럼 사용하는 가장 단순한 RAID.
 - RAID 0: 하나의 데이터를 여러 드라이브에 분산 저장함 -> Striping(스트라이핑) 방식
 - RAID 1: 하나의 하드디스크에 기록되는 모든 데이터가 나머지 하나의 하드디스크에 고스란히 복사되는 방법으로 저장함
@@ -14,9 +15,8 @@ RAID(Redundant Array of Independent Disks)
   <0>
   #mdadm --create /dev/md/md0 --level=0 --raid-devices=2 /dev/sdb1 /dev/sdc1
   <1>
-  #mdadm --create /dev/md/md1 --level=1  --raid-devices=2 /dev/sdb1 /dev/sdc1
+  #mdadm --create /dev/md/md1 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
   
-[확인 명령어]
   #mdadm --detail --scan <- 간단한 정보 출력
   #mdadm --detail /dev/md/md0 -> 장치별 상세 정보 출력
   #mdadm --stop /dev/md/md0 -> 레이드 장치를 중지시킨다
@@ -27,3 +27,50 @@ RAID(Redundant Array of Independent Disks)
 4. 마운트
   #mount /dev/md/linear /mnt
 5. 자동 마운트
+
+[RAID 5]
+  #mdadm --create /dev/md/md5 --level=5 --raid-devices=5 /dev/sdb1 /dev/sdc1 /dev/sdd1
+  #mdadm --stop /dev/md/md5
+
+# xfs_quota -x <- 전문가 모드
+limit -u bsoft=1g bhard=2g isoft=3 ihard=5 test -> 용량이나 파일 갯수를 제한할 수 있다.
+bsoft: 사용자가 보장받을 수 있는 최대 용량(초과하면 일정 기간 이후 삭제됨)
+bhard: 사용자가 사용할 수 있는 최대 용량
+isoft: 사용자가 보장받을 수 있는 최대 파일 갯수(초과하면 일정 기간 이후 삭제됨)
+ihard: 사용자가 사용할 수 있는 최대 파일 갯수
+
+[사용자 쿼터 설정 변경]
+#edquota -u test
+
+[유예 기간 변경 확인]
+#edquota -t
+
+[사용자 관리]
+
+01. 사용자 생성
+  ID 생성: #useradd [사용자명]
+  비밀번호 변경: #passwd [사용자명]
+<관련 파일>
+  1) /etc/passwd <- 사용자 계정 정보 저장
+  2) /etc/shadow <- 사용자의 패스워드 정보 저장(암호화)
+  3) /etc/group <- 사용자가 소속된 그룹 정보 저장
+  4) /home/해당 계정 디렉토리 <- 
+  5) /var/mail/해당 사용자의 메일박스
+02. 사용자 삭제
+  1) 편집기: 관련 파일에서 해당 계정 전부 삭제
+  2) 명령어
+  계정 삭제: #userdel <옵션> [사용자명]
+  #userdel -r korea: -r 옵션을 붙이면 사용자의 디렉토리나 메일까지 삭제
+03. 사용자 정보 변경
+  #usermod [옵션] [계정명]
+  #usermod -c pse korea
+  <옵션>
+  -l: 계정명 변경
+  -u: UID
+  -g: GID
+  -c: 설명
+  -d: 사용자 홈디렉토리
+  -s: 사용자 셀 종류
+  
+Ctrl+Alt+F2: CLI 모드 진입
+Ctrl+Alt+F1: GUI 모드 진입
