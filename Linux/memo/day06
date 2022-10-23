@@ -46,22 +46,24 @@ ihard: 사용자가 사용할 수 있는 최대 파일 갯수
 #edquota -t
 
 [사용자 관리]
-
-01. 사용자 생성
+1. 사용자 생성
   ID 생성: #useradd [사용자명]
   비밀번호 변경: #passwd [사용자명]
 <관련 파일>
   1) /etc/passwd <- 사용자 계정 정보 저장
+  [계정명]:[패스워드]:[UID]:[GID]:[Comment]:[Home Directory]:[Shell]
+  korea:x:1000:1000::/home/korea:/bin/bash
   2) /etc/shadow <- 사용자의 패스워드 정보 저장(암호화)
   3) /etc/group <- 사용자가 소속된 그룹 정보 저장
   4) /home/해당 계정 디렉토리 <- 
   5) /var/mail/해당 사용자의 메일박스
-02. 사용자 삭제
+2. 사용자 삭제
   1) 편집기: 관련 파일에서 해당 계정 전부 삭제
   2) 명령어
   계정 삭제: #userdel <옵션> [사용자명]
   #userdel -r korea: -r 옵션을 붙이면 사용자의 디렉토리나 메일까지 삭제
-03. 사용자 정보 변경
+  
+3. 사용자 정보 변경
   #usermod [옵션] [계정명]
   #usermod -c pse korea
   <옵션>
@@ -69,8 +71,20 @@ ihard: 사용자가 사용할 수 있는 최대 파일 갯수
   -u: UID
   -g: GID
   -c: 설명
-  -d: 사용자 홈디렉토리
+  -d: 사용자 홈 디렉토리
   -s: 사용자 셀 종류
+
+4. 사용자 계정 일시 중지
+  [명령어]
+  #passwd [옵션] [계정명]
+  
+  <옵션>
+  -l(lock): 계정 잠금 설정
+  -u(unlock): 계정 잠금 해제
+  
+  <셸>: etc/passwd
+  /bin/false
+  /sbin/nologin
   
 Ctrl+Alt+F2: CLI 모드 진입
 Ctrl+Alt+F1: GUI 모드 진입
