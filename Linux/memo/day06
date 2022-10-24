@@ -29,7 +29,7 @@ RAID(Redundant Array of Independent Disks)
 5. 자동 마운트
 
 [RAID 5]
-  #mdadm --create /dev/md/md5 --level=5 --raid-devices=5 /dev/sdb1 /dev/sdc1 /dev/sdd1
+  #mdadm --create /dev/md/md5 --level=5 --raid-devices=3 /dev/sdb1 /dev/sdc1 /dev/sdd1
   #mdadm --stop /dev/md/md5
 
 # xfs_quota -x <- 전문가 모드
