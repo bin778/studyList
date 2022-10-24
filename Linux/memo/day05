@@ -57,5 +57,5 @@ LVM(Logical Volume Manager)
 4. #pvdisplay에서 PE를 확인
 
 5. #lvextend -l +5119(PE) /dev/myvg/mylv
-6. #fs_growfs /dev/myvg/mylv: 하드디스크 용량 재검색(언마운트 상태에서 할 것)
+6. #xfs_growfs /dev/myvg/mylv: 하드디스크 용량 재검색(언마운트 상태에서 할 것)
 7. 자동 마운트
