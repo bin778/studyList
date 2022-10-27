@@ -13,10 +13,11 @@ import Day03A3 from './day03/Day03A3.jsx';
 import Day03A4 from './day03/Day03A4.jsx';
 import Day03A5 from './day03/Day03A5.jsx';
 import Day04 from './day04/Day04';
-import Day05A1 from './day05/Day05A1.jsx'
-import Day05A2 from './day05/Day05A2.jsx'
-import Day05A3 from './day05/Day05A3.jsx'
-import Day05A4 from './day05/Day05A4.jsx'
+import Day05A1 from './day05/Day05A1.jsx';
+import Day05A2 from './day05/Day05A2.jsx';
+import Day05A3 from './day05/Day05A3.jsx';
+import Day05A4 from './day05/Day05A4.jsx';
+import Day06 from './day06';
 
 var start = 10;
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -35,5 +36,6 @@ root.render(
     // <Day05A1 value={1} />
     // <Day05A2 value="1" />
     // <Day05A3 value="1" />
-    <Day05A4 />
+    // <Day05A4 />
+    <Day06 />
 );
