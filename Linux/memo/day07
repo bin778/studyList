@@ -1,0 +1,32 @@
+1. 사용자 계정 생성시 참조 파일/경로
+  - /etc/login.defs
+  - /etc/skel/*
+  
+2. 패스워드 정보 파일
+  - korea1:$6$eglruBHU$3UjprZhSZIrfzCY0SEnL01m5WGurJiiPaw27BameFkGCnip/4NbLH6bbezUIaFPiWHsrtkEbZeEfeW1YyqzIO.:19294:0:99999:7:::
+  [계정명]:[암호화된 패스워드]:[패스워드 변경 후 지난 일수]:[패스워드 최소 변경일]:[최대 유효기간]:[경고일]:[비활성화 기간]:[계정 만료일]:[예비]
+  
+  - $6 : Hash Type(암호 알고리즘)
+  - $eglruBHU : Salt(Random)
+  - $3UjprZhSZIrfzCY0SEnL01m5WGurJiiPaw27BameFkGCnip/4NbLH6bbezUIaFPiWHsrtkEbZeEfeW1YyqzIO.
+    = Salt + 123456
+--------------------------------------------------------------------------------------------------------
+
+3. 사용자 정보 변경
+  #usermod [옵션] [설정값] [계정]
+  #usermod -c korea korea4
+  
+4. 패스워드 정보 변경
+  #chage [옵션] [설정값] [계정명]
+  #chage -m 10 korea4
+
+  <옵션>
+  -m: 최소 변경일
+  -M: 최대 유효기간
+  -W: 만료 경고일
+  -I: 비활성화 기간
+  -E: 계정 만료일(2022/12/31)
+  
+  -l: 사용자 정보 확인
+--------------------------------------------------------------------------------------------------------
+
