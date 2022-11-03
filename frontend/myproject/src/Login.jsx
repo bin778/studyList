@@ -1,4 +1,5 @@
 import IMG_LOGO from "./images/facebook-logo.svg"
+import {InputBox} from "./Component.jsx" 
 
 export default function Login(props) {
     return (
@@ -9,12 +10,11 @@ export default function Login(props) {
             </div>
             <div className="login-box">
                 <div>
-                    <div>
-                        <input className="input-email" type="text" name="email" placeholder="이메일 또는 전화번호" />
-                    </div>
-                    <div>
-                        <input className="input-pass" type="password" placeholder="비밀번호"/>
-                    </div>
+                    <InputBox title={true} type="text" guide="이메일 또는 전화번호" />
+                    <InputBox type="password" guide="비밀번호" />
+                    <InputBox type="text" guide="성명" />
+                    <InputBox type="text" guide="성별" />
+                    <InputBox type="text" guide="나이" />
 
                     <button className="login-button" onClick={() => window.location.href = "/"}>로그인</button>
                     <a onClick={() => window.location.href = "/identify"}>비밀번호를 잊으셨나요?</a>
