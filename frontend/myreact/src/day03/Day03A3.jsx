@@ -7,15 +7,15 @@ export default class Day03A3 extends React.Component {
         this.state = {birthday: 2000};
     }
 
-    // 함수를 만들때 주의할 점 this 사용
+    // 함수를 만들때 주의할 점은 this 사용을 위해
     // 반드시 화살표(=>) 함수를 이용해 함수를 만들어야 한다.
     onChangeSelect = (event) => {
         console.log(this.state);
-        console.log(event);
-        console.log(event.target);
-        console.log(event.target.value);
+        console.log(event)
+        console.log(event.target)
+        console.log(event.target.value)
 
-        this.setState({birthday: event.target.value})
+        this.setState({birthday: event.target.value })
     }
 
     render() {

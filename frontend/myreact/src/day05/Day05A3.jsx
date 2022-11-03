@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect} from "react"
 
 export default function Day05A3(props) {
     const [count, setCount] = useState(Number(props.value));
@@ -7,20 +7,20 @@ export default function Day05A3(props) {
     useEffect(() => {
         console.log(count);
         if(count === 5) {
-            setName("김유신");
+            setName("김유신")
         } else if(count === 10) {
-            setName("강감찬");
+            setName("강감찬")
         }
     }, [count]);
 
     const onClickButton = () => {
         setCount(count + 1);
-        console.log(count);
+        console.log(count)
 
         // if(count === 4) {
-        //     setName("김유신");
+        //     setName("김유신")
         // } else if(count === 9) {
-        //     setName("강감찬");
+        //     setName("강감찬")
         // }
     }
 

@@ -25,9 +25,13 @@ header > a:hover {
 
 main {
     position: relative;
-    width: 600px;
+    width: 1000px;
     margin: 0 auto;
     min-height: 600px;
+}
+
+.input-email {
+    margin-top: 100px;
 }
 
 .input-email, .input-pass {
@@ -41,10 +45,6 @@ main {
     padding: 0 10px;
 }
 
-.input-email {
-    margin-top: 100px;
-}
-
 .input-email:focus,
 .input-pass:focus {
     outline: none !important;
@@ -54,7 +54,7 @@ main {
 }
 
 .div-line {
-    border-bottom: 1px solid #dadde1;
+    border-bottom: 1px solid #dadde1 ;
     width: 100%;
     margin: 20px 0;
 }
@@ -95,7 +95,7 @@ main .list {
 main .container {
     height: 2000px;
     width: 1000px;
-    margin: 10px auto;    
+    margin: 10px auto;
 }
 
 main .container li {

@@ -1,17 +1,17 @@
-import {useEffect, useRef} from 'react';
+import {useRef} from 'react';
 
 export default function Day05A4() {
-    const inputPrev = useRef();
-    const inputNext = useRef();
+    const inputPrev = useRef()
+    const inputNext = useRef()
 
     const onNext = () => {
-        inputNext.current.focus();
+        inputNext.current.focus()
         // const input = document.querySelector("#input");
-        // input.focus();
+        // input.focus()
     }
 
     const onPrev = () => {
-        inputPrev.current.focus();
+        inputPrev.current.focus()
     }
 
     return (

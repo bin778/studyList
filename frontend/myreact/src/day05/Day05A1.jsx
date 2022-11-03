@@ -22,7 +22,7 @@ export default class Day05A1 extends Component {
             <div>
                 <h3>제 이름은 {this.state.name} 입니다.</h3>
                 <p>count = {this.state.count}</p>
-                {/* this.onClick을 사용하여 함수 호출 */}
+                {/* this.onClick를 사용하여 함수 호출 */}
                 <button type="button" onClick={this.onClick}>버튼을 클릭하세요</button>
             </div>
         )

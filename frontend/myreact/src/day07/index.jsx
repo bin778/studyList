@@ -6,7 +6,7 @@ import NotFound from "./NotFound.jsx"
 
 import "./default.scss"
 
-export default function Day05() {
+export default function Day07() {
     return (
         <BrowserRouter>
             {/* 헤더에서 네비게이션 메뉴를 설정해야 한다. */}
@@ -17,7 +17,7 @@ export default function Day05() {
                 <Link to="/login">Login</Link>
             </header>
 
-            {/* 헤더에서 클릭된 URL를 찾아 매칭되는 화면을 그리기 위한 라우터를 설정한다. */}
+            {/* 헤더에서 클릭된 URL을 찾아 매칭되는 화면을 그리기 위한 라우터를 설정한다. */}
             <main>
                 <Routes>
                     <Route path="/" element={<Home />} />

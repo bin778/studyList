@@ -1,5 +1,5 @@
-import React from "react";
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const StyledButton = styled.button`
     // 스타일을 작성
@@ -9,6 +9,6 @@ const StyledButton = styled.button`
     background-color: white;
 `
 
-export default function Button(props) {
+export default function Button1(props) {
     return <StyledButton>버튼입니다.</StyledButton>
 }

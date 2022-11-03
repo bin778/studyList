@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import SAMPLE_IMG from "./images/sample-image.jpg";
-import CLOSE_IMG from "./images/close.png";
-import GAME_1 from "./images/game-1.jpg";
-import GAME_2 from "./images/game-2.jpg";
-import GAME_3 from "./images/game-3.jpg";
+import { useState } from 'react'
+import SAMPLE_IMG from "./images/sample-image.jpg"
+import CLOSE_IMG from "./images/close.png"
+import GAME_1 from "./images/game-1.jpg"
+import GAME_2 from "./images/game-2.jpg"
+import GAME_3 from "./images/game-3.jpg"
 
 // 1차로 반복적인 아이템을 리펙토링하자.
 export default function Home(props) {
@@ -14,25 +14,25 @@ export default function Home(props) {
     ])
 
     const onClickLink = () => {
-        window.open("https://www.daum.net");
+        window.open("http://www.daum.net");
     }
 
     const onClickLike = (item) => {
         item.count = item.count + 1;
-        console.log(item);
-        const array = [...list]
-        setList(array);
+        console.log(item)
+        const temps = [...list] // 먼저 해주고
+        setList(temps)
     }
 
-    return(
+    return (
         <section className='container'>
             <ul className='list'>
                 {/* 반복될 요소 */}
                 {
-                list.map(item => {
+                list.map((item, index) => {
                     console.log(item);
 
-                    return <li>
+                    return <li key={index}>
                         <div className='card'>
                             <img src={item.img} alt="샘플이미지" />
                             <div className='text'>
@@ -49,7 +49,7 @@ export default function Home(props) {
                     </li>
                 })
                 }
-
+                
             </ul>
         </section>
     )

@@ -1,4 +1,4 @@
-import Day04A1 from './Day04A1.jsx'
+import Day04A1 from "./Day04A1.jsx"
 
 export default function Day04() {
     return (

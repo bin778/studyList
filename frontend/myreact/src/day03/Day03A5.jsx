@@ -4,14 +4,14 @@ export default class Day03A5 extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { radio: 0 };
+        this.state = { radio: 0 }
     }
 
     onChangeMac = (event) => {
         console.log("맥 " + event.target.checked);
     }
 
-    onChangeWindows = (event) => {
+    onChangeWindow = (event) => {
         console.log("윈도우 " + event.target.checked);
     }
 
@@ -24,24 +24,23 @@ export default class Day03A5 extends React.Component {
     // }
 
     onChangeRadio = (event) => {
-        // debugger
-        console.log(event.target.value);
+        console.log(event.target.textContent);
     }
 
     render() {
         return <div>
             <h3>Radiobox onChange</h3>
-            {/* <input type="radio" name="os" onChange={this.onChangeWindows} />윈도우
-            <input type="radio" name="os" onChange={this.onChangeMac} />맥
-            <input type="radio" name="os" onChange={this.onChangeUnix} />유닉스 */}
+            {/* <input type="radio" name="os" onChange={this.onChangeWindow}/>윈도우
+            <input type="radio" name="os" onChange={this.onChangeMac}/>맥
+            <input type="radio" name="os" onChange={this.onChangeUnix}/>유닉스 */}
 
-            {/* <input type="radio" name="os" onChange={(event) => this.onChangeRadio('win')} />윈도우
-            <input type="radio" name="os" onChange={(event) => this.onChangeRadio('mac')} />맥
-            <input type="radio" name="os" onChange={(event) => this.onChangeRadio('unix')} />유닉스 */}
+            {/* <input type="radio" name="os" onChange={(event) => this.onChangeRadio('win')}/>윈도우
+            <input type="radio" name="os" onChange={(event) => this.onChangeRadio('mac')}/>맥
+            <input type="radio" name="os" onChange={(event) => this.onChangeRadio('unix')}/>유닉스 */}
 
-            <input type="radio" name="OS" value='윈도우' onChange={this.onChangeRadio} />윈도우
-            <input type="radio" name="OS" value='맥' onChange={this.onChangeRadio} />맥
-            <input type="radio" name="OS" value='유닉스' onChange={this.onChangeRadio} />유닉스
+            <input type="radio" name="OS" value='윈도우' onChange={this.onChangeRadio}/>윈도우
+            <input type="radio" name="OS" value='맥' onChange={this.onChangeRadio}/>맥
+            <input type="radio" name="OS" value='유닉스' onChange={this.onChangeRadio}/>유닉스
         </div>
     }
 }

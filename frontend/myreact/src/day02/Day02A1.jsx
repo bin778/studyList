@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-// // 리액트의 초창기 작성 방법으로 클래스 형식의 작성방법이다.
+// 리액트의 초창기 작성 방법으로 클래스 형식의 작성방법이다.
 // export default class Day02A1 extends React.Component {
 //     render() {
 //         return (
