@@ -33,7 +33,28 @@ scss
 
 			li {
 				float: left;
-				
+
+Ampersand(상위 선택자 참조)
+css
+	.btn { position: absolute; }
+	.btn > .span { color: red; }
+
+scss
+	.btn {
+		position: absolute;
+
+		& > span { color: red; }
+	}
+
+styled-components
+	Javascript 파일 내에서 css를 사용할 수 있게 해주는 대표적인 CSS-in-JS 라이브러리
+	React 프레임워크를 주요 대상으로 한 라이브러리이다.
+	Javascript 파일마다 고유한 css 네임 스페이스를 부여해주기 때문에
+	각 React 컴포넌트에 완전히 격리된 스타일을 적용할 수 있게 한다.
+
+scss 스타일을 사용하기 위한 설정
+	npm i styled-components
+
 tailwindcss
 	외부 라이브러리를 통해 보다 쉽고 빠르게 컴포넌트들을 디자인 하는 방법이다.
 	미리 정해진 스타일의 클래스명을 통해 빠르게 디자인이 가능하다.
@@ -64,24 +85,3 @@ index.css 내용 추가
 			}
 		}
 	}
-
-Ampersand(상위 선택자 참조)
-css
-	.btn { position: absolute; }
-	.btn > .span { color: red; }
-
-scss
-	.btn {
-		position: absolute;
-
-		& > span { color: red; }
-	}
-
-styled-components
-	Javascript 파일 내에서 css를 사용할 수 있게 해주는 대표적인 CSS-in-JS 라이브러리
-	React 프레임워크를 주요 대상으로 한 라이브러리이다.
-	Javascript 파일마다 고유한 css 네임 스페이스를 부여해주기 때문에
-	각 React 컴포넌트에 완전히 격리된 스타일을 적용할 수 있게 한다.
-
-scss 스타일을 사용하기 위한 설정
-	npm i styled-components
