@@ -30,7 +30,7 @@ Telnet 서버 구축
   
   5) Telnet root 접속 허용
     vi /etc/securetty
-    pts0/1, ptx0/2 추가
+    pts/0, pts/1 추가
     
 #yum [옵션] [명령어] [패키지명]
 #yum -y lnstall telnet-server*
