@@ -27,6 +27,10 @@ Telnet 서버 구축
     Telnet은 보안에 취약하기 때문에 관리자(root) 권한 로그인 불가
     
   4) 포트 번호: 23
+  
+  5) Telnet root 접속 허용
+    vi /etc/securetty
+    pts0/1, ptx0/2 추가
     
 #yum [옵션] [명령어] [패키지명]
 #yum -y lnstall telnet-server*
@@ -49,3 +53,7 @@ SHH(Secure Shell) 서버 구축
   #ssh -l(소문자 엘) [계정명] [목적지 IP/도메인 주소]
   
   4) 포트 번호: 22
+
+Shell 창 접속 문구 변경
+  - vi /etc/issue
+  - vi /etc/issue.net
