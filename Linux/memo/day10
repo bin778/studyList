@@ -45,6 +45,7 @@ xinetd.conf
 [Telnet 데몬 파일 만들기]
 #vi /etc/xinetd.d/telnet
 service telnet
+
 {
         flags   = REUSE
         socket_type     = stream
@@ -56,23 +57,49 @@ service telnet
 }
 
 ----------------------------------------------------
+
 2. SSH 서버 포트 변경
   - 환경 설정 파일/경로: /etc/ssh/sshd_config
     포트 번호 변경: #Port 22 -> Port 2002(#은 주석 처리)
 
 3. NFS 서버 구축
-  - 설치: #yum -y install nfs*, #yum -y install rpcbind
-  
+  - 설치: #yum -y install nfs*, #yum -y install rpcbind  
   - 프로그램명: nfs
   - 환경 설정 파일: /etc/nfs.conf
-  - 서비스 환경 설정 파일: /etc/exports <- 생성
   
+  - 서비스 환경 설정 파일: /etc/exports <- 생성
   - NFS 실행
     #systemctl stop firewalld(방화벽 해제)
     #systemctl restart rpcbind
-    #systemctl restart nfs
     
-  <설정 정보>
+    #systemctl restart nfs
+  <설정 정보> -> /etc/exports
     [공유 디렉토리][클라이언트 IP/도메인](옵션)
-    /nfs          *(sync/rw)
-    /nfs          192.168.XX.XXX(sync/rw)
+    /nfs          *(sync,rw)
+    /nfs          192.168.XX.XXX(sync,rw) <- 특정 클라이언트 허용(192.168.XX.XXX)
+    /nfs          192.168.XX.*(sync,rw) <- 특정 클라이언트 허용(C Class 전체 허용)
+    /nfs          192.168.*.*(sync,rw) <- 특정 클라이언트 허용(B Class 전체 허용)
+[Linux에서 마운트]    
+  #mount -t nfs 192.168.XX.XXX(Linux IP):/nfs /mnt
+
+4. Windows -> Linux
+  <Linux 설정 정보> -> /etc/exports
+    [공유 디렉토리][클라이언트 IP/도메인](옵션)
+    /nfs          *(sync,rw)
+    /nfs          192.168.XX.XXX(sync,rw) <- 특정 클라이언트 허용(192.168.XX.XXX)
+    /nfs          192.168.XX.*(sync,rw) <- 특정 클라이언트 허용(C Class 전체 허용)
+    /nfs          192.168.*.*(sync,rw) <- 특정 클라이언트 허용(B Class 전체 허용)
+    
+[클라이언트에서 접속 방법]
+  c:/mount 192.168.XX.XXX:/nfs *
+  c:/mount 192.168.XX.XXX:/nfs1 * <- 접속 불가
+  c:/mount 192.168.XX.XXX:/nfs2 *
+  c:/mount 192.168.XX.XXX:/nfs3 *
+  
+5. Linux -> Windows
+[클라이언트에서 접속 방법]
+  1) 공유 디렉토리 생성: c:\win_nfs
+  2) 접근 권한: everyone(공유)
+  3) 사용자 생성: net user root (비밀번호) /add
+  
+#mount -t cifs //192.168.XX.XXX(Windows IP)/win_nfs /home/korea
