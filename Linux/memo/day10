@@ -1,0 +1,27 @@
+[원격 접속 서버]
+1) Telnet Server -> 포트 번호: 23
+2) SSH Server -> 포트 번호: 22
+
+----------------------------------------------------
+[포트 번호]
+포트의 개수는 65,536개
+  1) WellKnown Port(잘 알려진 포트)
+    - 0 ~ 1,023
+  2) Registered Port
+    - 1,024 ~ 49,151
+  3) Dynamic Port
+    - 49,152 ~ 65,535
+
+1. 포트 변경
+  1) Telnet
+    - 환경 설정 파일/경로: /usr/lib/systemd/system/telnet.socket
+    
+  2) 포트 변경 시 셸에서 접속 방법(반드시 telnet.socket에서 포트 번호가 같아야함)
+    -C:/telnet [목적지 IP 주소/도메인 주소] [포트번호]
+    -C:/telnet 192.168.XX.XXX 2323
+    
+[중지 서비스]
+1) 방화벽
+  #systemctl stop firewalld
+2) selinux(소형 방화벽)
+  #setenforce 0
