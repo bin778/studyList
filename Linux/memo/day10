@@ -12,11 +12,13 @@
   3) Dynamic Port
     - 49,152 ~ 65,535
 
-1. 포트 변경
+1. Telnet 포트 변경
   1) Telnet
     - 환경 설정 파일/경로: /usr/lib/systemd/system/telnet.socket
     
   2) 포트 변경 시 셸에서 접속 방법(반드시 telnet.socket에서 포트 번호가 같아야함)
+    #vi/etc/services
+    - 포트 번호를 변경하고 셸에서도 해당 포트 번호로 접속 가능
     -C:/telnet [목적지 IP 주소/도메인 주소] [포트번호]
     -C:/telnet 192.168.XX.XXX 2323
     
@@ -25,3 +27,52 @@
   #systemctl stop firewalld
 2) selinux(소형 방화벽)
   #setenforce 0
+  
+----------------------------------------------------
+[Telnet 데몬]
+xinetd(슈퍼데몬)
+  오픈 소스 슈퍼 서버 데몬으로서 많은 유닉스 계열 시스템에서 돌아가며 인터넷 기반 연결을 관리한다.
+  슈퍼데몬으로써, inetd를 대체한다.
+  더욱 더 강력한 보안을 제공하고, 현대 유닉스 계열에서 대부분 사용한다.
+
+설치: #yum -y install xinetd*
+xinetd.conf
+  xinetd의 환경 설정 파일
+/etc/xinetd.d
+  xinetd의 설치 파일 경로
+/etc/init.d <- standalone 방식으로 운영되는 데몬
+
+[Telnet 데몬 파일 만들기]
+#vi /etc/xinetd.d/telnet
+service telnet
+{
+        flags   = REUSE
+        socket_type     = stream
+        wait    = no
+        user    =       root
+        server  =       /usr/sbin/in.telnetd
+        log_on_failure  += USERID
+        disable = no
+}
+
+----------------------------------------------------
+2. SSH 서버 포트 변경
+  - 환경 설정 파일/경로: /etc/ssh/sshd_config
+    포트 번호 변경: #Port 22 -> Port 2002(#은 주석 처리)
+
+3. NFS 서버 구축
+  - 설치: #yum -y install nfs*, #yum -y install rpcbind
+  
+  - 프로그램명: nfs
+  - 환경 설정 파일: /etc/nfs.conf
+  - 서비스 환경 설정 파일: /etc/exports <- 생성
+  
+  - NFS 실행
+    #systemctl stop firewalld(방화벽 해제)
+    #systemctl restart rpcbind
+    #systemctl restart nfs
+    
+  <설정 정보>
+    [공유 디렉토리][클라이언트 IP/도메인](옵션)
+    /nfs          *(sync/rw)
+    /nfs          192.168.XX.XXX(sync/rw)
