@@ -79,8 +79,7 @@ public class View {
 			}else {
 				System.out.println("wrong value");
 			}
-			System.out.println();
-			
+			System.out.println();			
 		}
 		
 	}
