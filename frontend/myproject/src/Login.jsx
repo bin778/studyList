@@ -11,10 +11,10 @@ export default function Login(props) {
             <div className="login-box">
                 <div>
                     <InputBox title={true} type="text" guide="이메일 또는 전화번호" />
-                    <InputBox type="password" guide="비밀번호" />
-                    <InputBox type="text" guide="성명" />
+                    <InputBox title={true} type="password" guide="비밀번호" />
+                    {/* <InputBox type="text" guide="성명" />
                     <InputBox type="text" guide="성별" />
-                    <InputBox type="text" guide="나이" />
+                    <InputBox type="text" guide="나이" /> */}
 
                     <button className="login-button" onClick={() => window.location.href = "/"}>로그인</button>
                     <a onClick={() => window.location.href = "/identify"}>비밀번호를 잊으셨나요?</a>

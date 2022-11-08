@@ -7,6 +7,7 @@ import Identify from "./Identify.jsx"
 
 import Video from "./Video.jsx"
 import People from "./People.jsx"
+import Game from "./Game.jsx"
 
 import "./default.scss"
 import "./react.scss"
@@ -15,14 +16,15 @@ function App() {
   return (
     <BrowserRouter>
     {/* 헤더에서 네비게이션(메뉴)를 설정해야 한다. */}
-    <header>
+    {/* <header>
       <Link className="" to="/">홈</Link>
       <Link className="" to="/login">로그인</Link>
       <Link className="" to="/regist">사용자 등록</Link>
       <Link className="" to="/identify">사용자 찾기</Link>
       <Link className="" to="/video">Video</Link>
       <Link className="" to="/people">People</Link>
-    </header>
+      <Link className="" to="/game">Game</Link>
+    </header> */}
 
     <main>
       <Routes>
@@ -32,6 +34,7 @@ function App() {
         <Route path="/identify" element={<Identify />} />
         <Route path="/video" element={<Video />} />
         <Route path="/people" element={<People />} />
+        <Route path="/game" element={<Game />} />
       </Routes>
     </main>
 

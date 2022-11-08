@@ -6,10 +6,12 @@ import HOME_ICON from './images/home.png'
 import YOUTUBE_ICON from './images/youtube.png'
 import PEOPLE_ICON from './images/people.png'
 
+import Header from "./Header.jsx"
+
 export default function Video(props) {
   return (
     <>
-      {/* <Header /> */}
+      <Header name="video" />
       <section className="home-layer video-layer">
           <ul className="list">
             <li>

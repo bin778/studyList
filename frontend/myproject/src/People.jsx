@@ -5,6 +5,8 @@ import HOME_ICON from "./images/home.png"
 
 import { useState } from "react"
 
+import Header from "./Header.jsx"
+
 export default function People(props) {
     const [active, setActive] = useState(1);
 
@@ -12,6 +14,7 @@ export default function People(props) {
 
     return (
         <>
+            <Header name="people" />
             <section className="home-layer people-layer">
                 <div className="bg-image"></div>
                 <div className="t-layer">
