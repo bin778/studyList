@@ -129,8 +129,7 @@ public class UserDAO {
 		br.close();
 		
 		return list;
-		
-		
+				
 	}
 	
 }
