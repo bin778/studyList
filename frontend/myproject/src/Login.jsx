@@ -10,8 +10,8 @@ export default function Login(props) {
             </div>
             <div className="login-box">
                 <div>
-                    <InputBox title={true} type="text" guide="이메일 또는 전화번호" />
-                    <InputBox title={true} type="password" guide="비밀번호" />
+                    <InputBox title={false} type="text" guide="이메일 또는 전화번호" />
+                    <InputBox title={false} type="password" guide="비밀번호" />
                     {/* <InputBox type="text" guide="성명" />
                     <InputBox type="text" guide="성별" />
                     <InputBox type="text" guide="나이" /> */}

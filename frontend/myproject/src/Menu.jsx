@@ -66,7 +66,7 @@ export default function Menu(props) {
                     <span className="icon">
                       <img src={ALARM_ICON} alt="알람" />
                     </span>
-                    <span className="label">로그아웃</span>
+                    <span className="label" onClick={() => { window.location.href = "/login" }}>로그아웃</span>
                   </li>
                 </ul>
               </div>
