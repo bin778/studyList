@@ -44,7 +44,7 @@
 
 [DNS Server]
 1. 프로그램
-  - 프로그램: BIND9.0
+  - 프로그램: BIND(V9.0)
   
 2. 환경 설정
   1) /etc/named.conf <- 주 환경 설정 파일
@@ -54,3 +54,7 @@
   
 3. 설치
   #yum -y install bind*
+
+4. IP 주소 확인
+  - Linux: /etc/resolv.conf -> 해당 IP 변경 -> host test.co.kr
+  - Windows: 네트워크 및 인터넷 설정 -> Ethernet() 속성 -> 인터넷 프로토콜 버전4 -> 다음 DNS 서버 주소 사용(해당 IP)
