@@ -49,7 +49,7 @@
 2. 환경 설정
   1) /etc/named.conf <- 주 환경 설정 파일
   2) /etc/named.rfc1912.zones <- 도메인 등록 파일
-  3) /var/named/test.co.kr.zone <- 해당 모데인의 등록 정보 파일
+  3) /var/named/test.co.kr.zone <- 해당 도메인의 레코드 파일
 - 데몬: named
   
 3. 설치
