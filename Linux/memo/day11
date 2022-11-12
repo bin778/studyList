@@ -1,0 +1,14 @@
+[Samba Server]
+
+1. 프로그램 설치
+  - 프로그램: samba, samba-client, samba-common
+  - 환경 설정 파일: /etc/smb.conf
+  - 데몬: smb
+  
+2. 환경 설정
+  - /etc/samba/smb.conf
+  
+3. 운영 방식
+  1) 무인증(공유): share(CentOS 6.XX 까지 지원)
+  2) 인증(아이디/패스워드): ID/Password
+  3) 인증 서버 이용
