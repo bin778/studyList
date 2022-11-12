@@ -41,3 +41,16 @@
   - ascii_download_enable=YES: 아스키 코드 파일 다운로드 허용
   - anon_other_write_enable=YES: 어나니머스 파일 삭제 허용(/var/ftp/pub)
 ==========================================================
+
+[DNS Server]
+1. 프로그램
+  - 프로그램: BIND9.0
+  
+2. 환경 설정
+  1) /etc/named.conf <- 주 환경 설정 파일
+  2) /etc/named.rfc1912.zones <- 도메인 등록 파일
+  3) /var/named/test.co.kr.zone <- 해당 모데인의 등록 정보 파일
+- 데몬: named
+  
+3. 설치
+  #yum -y install bind*
