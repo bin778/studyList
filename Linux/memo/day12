@@ -1,0 +1,20 @@
+[DNS Server]
+1. 프로그램
+  - 프로그램: BIND(V9.0)
+  - 환경 설정파일: /etc/named.conf <- 주 환경 설정 파일
+                  /etc/named.rfc1912.zone <- 도메인 등록 파일
+                  /var/named/test.co.kr.zone <- 도메인 레코드 파일
+  - 데몬: named
+
+2. 관련 명령어
+  - #nslookup [Domain Name] <- DNS Server IP 주소 확인
+  - #host [도메인] <- 해당 도메인 질의
+  - c:\ipconfig /displaydns <- DNS 캐시 확인
+  - c:\ipconfig /flushdns <- DNS 캐시 삭제
+  
+3. DNS 설정 파일
+  - /etc/resolv.conf
+
+4. 서비스 시작/재시작
+  #systemctl start/restart/stop [서비스]
+  #systemctl restart named
