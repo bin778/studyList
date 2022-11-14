@@ -2,7 +2,7 @@
 1. 프로그램 설치
   - 프로그램: samba, samba-client, samba-common
   
-  - 환경 설정 파일: /etc/smb.conf
+  - 환경 설정 파일: /etc/samba/smb.conf
   - 데몬: smb
   
 2. 환경 설정
