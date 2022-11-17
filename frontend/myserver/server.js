@@ -65,3 +65,20 @@ const http = require("http").createServer(app);
 app.listen(8080, () => {
     console.log("start! express server!");
 });
+
+// const Module = require("./src/Day04/moduls.js");
+// console.log(Module.add(1, 2));
+// console.log(Module.sub(2, 1));
+// console.log(Module.mul(3, 4));
+// console.log(Module.div(10, 2));
+
+// const Sys = require("./src/Day04/system.js");
+// Sys.info();
+// Sys.path();
+
+const Moment = require("./src/Day04/moment.js");
+// Moment.today();
+// Moment.date();
+// Moment.format();
+// Moment.add();
+Moment.diff();
