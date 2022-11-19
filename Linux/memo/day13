@@ -19,3 +19,39 @@ SELinux를 끄는 방법: vi /etc/sysconfig/selinux
 3. 가상 호스트
   - 환경 설정 파일(생성)
 /etc/httpd/conf.d/vhost.conf
+
+======================================================
+
+NameVirtualHost *:80
+
+  <VirtualHost *:80>
+    DocumentRoot        /home/test/public_html/
+    ServerName          test.co.kr
+    ServerAlias         www.test.co.kr
+  </VirtualHost>
+
+======================================================
+
+4. 데이터베이스
+  1) 설치
+  - yum -y install php* --skip-broken
+  - yum -y install php-* --skip-broken
+  - yum -y install php --skip-broken
+  - yum -y install mariadb*
+
+  2) 실행
+  - systemctl restart mariadb
+
+  - mysql -p mysql <- 초기 실행하면 비밀번호 없음
+
+  3) 명령어
+  show databases; <- 현재 데이터베이스 목록 출력
+  create databases test; <- 새로운 데이터베이스 생성
+
+  insert into user(host,user,password) values('localhost','test',password('123456'));
+  use test; <- 사용할 데이터베이스 변경
+  flush privileges; <- 데이터베이스 변경사항 적용
+
+  grant all privileges on test.* to test@localhost identified by '123456';
+
+unzip [압축 파일] <- 파일 압축
