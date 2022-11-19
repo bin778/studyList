@@ -1,0 +1,21 @@
+SELinux: 리눅스 내 시스템의 애플리케이션, 프로세스, 파일에 대한 액세스 제어를 정의한다.
+SELinux를 끄는 방법: vi /etc/sysconfig/selinux
+  SELINUX=enforcing 을 SELINUX=disabled 로 변경후 저장
+
+[Web Server]
+  - APM 패키지
+1. 프로그램
+  - 프로그램: Apache
+  - 언어: PHP
+  - DB 서버: Mariadb(MySQL)
+
+2. 환경 설정 파일
+  - /etc/httpd/conf/httpd.conf <- Apache 주 환경 설정 파일
+
+1) 사용자 생성
+  - test
+  - /home/test/public_html/index.html
+
+3. 가상 호스트
+  - 환경 설정 파일(생성)
+/etc/httpd/conf.d/vhost.conf
