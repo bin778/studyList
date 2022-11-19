@@ -36,7 +36,7 @@ NameVirtualHost *:80
   1) 설치
   - yum -y install php* --skip-broken
   - yum -y install php-* --skip-broken
-  - yum -y install php --skip-broken
+  - yum -y install php
   - yum -y install mariadb*
 
   2) 실행
@@ -48,7 +48,7 @@ NameVirtualHost *:80
   show databases; <- 현재 데이터베이스 목록 출력
   create databases test; <- 새로운 데이터베이스 생성
 
-  insert into user(host,user,password) values('localhost','test',password('123456'));
+  insert into user(host,user,password) values('localhost','test',password('123456')); <- 새로운 데이터베이스 삽입
   use test; <- 사용할 데이터베이스 변경
   flush privileges; <- 데이터베이스 변경사항 적용
 
