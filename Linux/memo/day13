@@ -52,6 +52,6 @@ NameVirtualHost *:80
   use test; <- 사용할 데이터베이스 변경
   flush privileges; <- 데이터베이스 변경사항 적용
 
-  grant all privileges on test.* to test@localhost identified by '123456'; <- 권한 
+  grant all privileges on test.* to test@localhost identified by '123456'; <- 새로운 사용자에게 권한 부여
 
-unzip [압축 파일] <- 파일 압축
+unzip [압축 파일] <- 파일 압축 명령어
