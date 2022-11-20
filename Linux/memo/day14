@@ -1,0 +1,27 @@
+[MySQL]
+
+<호스트 내부 접근만 허용>
+MariaDB [mysql]> insert into user(host,user,password) values('localhost','kbs',password('123456'));
+
+<192.168.XX.XXX 호스트만 허용>
+MariaDB [mysql]> insert into user(host,user,password) values('192.168.XX.XXX','kbs',password('123456'));
+
+<C Class 허용>
+MariaDB [mysql]> insert into user(host,user,password) values('192.168.XX.%','kbs',password('123456'));
+
+<B Class 허용>
+MariaDB [mysql]> insert into user(host,user,password) values('192.168.%.%','kbs',password('123456'));
+
+<모든 호스트 허용>
+MariaDB [mysql]> insert into user(host,user,password) values('%','ytn',password('123456'));
+MariaDB [mysql]> grant all privileges on ytn.* to 'ytn'@'%' identified by '123456';
+
+select host,user,password from user;
+
+<tar 파일 압축하기>
+gzip -d pydio-core-6.0.2.tar.gz
+tar -xvf pydio-core-6.0.2.tar
+
+384 라인: 업/다운로드 시간 <- vi /etc/php.ini
+672 라인: 첨부 파일 크기
+800 라인: 업다운 파일 크기
