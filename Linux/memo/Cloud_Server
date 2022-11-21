@@ -1,0 +1,76 @@
+[클라우드 서버 구축]
+
+<선행 작업>
+01. DNS Server에 도메인 등록
+   - cloud.co.kr
+
+02. Web Server 가상 호스트 설정
+
+03. DB Server 설정/생성(DB Server Web Server와 별도 운영)
+   - DB명: cloud
+   - User명: cloud
+   - host: %
+=================================================
+01. 레드햇 엔터프라이즈 패키지 설치
+  - #yum -y install epel-release
+  - #yum -y install php-mcrypt
+  - #yum -y install qtwebkit 
+
+02. 서버 프로그램
+  - owncloud-3rdparty-7.0.4-16.1.noarch.rpm
+  - owncloud-7.0.4-16.1.noarch.rpm
+
+02. 서버 프로그램 설치
+  #yum -y localinstall owncloud-*
+
+03. 디렉터리 
+  - /var/www/html/owncloud
+
+04. /etc/httpd/conf/httpd.conf 파일 수정
+  - 151 라인 : AllowOverride All <-수정
+
+05. 웹서버 재시작
+  #systemctl restart httpd
+
+06. 웹브라우저 접속
+  - http://192.168.239.128/owncloud
+  - 관리자 계정 만들기
+   -> admin/123456
+  - admin 클릭 -> 개인
+  - admin -> 사용자 생성
+
+07. 파일 업로드 테스트
+----------------------------------------------------------------------------------
+
+[윈도우용 클라우드 클라이언트 설치]
+
+01. 클라이언트 프로그램 설치
+   - ownCloud-1.7.1(Windows용)
+
+02. 클라이언트 프로그램 설정 및 접속
+   - Server Address : https:192.168.239.128/owncloud
+   - trusted.... 체크
+   - 공유 폴더 설정
+   
+---------------------------------------------------------------------------------
+
+[리눅스 클라우드 클라이언트 설치]
+
+02. 클라이언트 프로그램
+  - libowncloudsync0-1.7.1-1.1.x86_64.rpm
+  - libqtkeychain0-0.4-5.1.x86_64.rpm
+  - owncloud-client-1.7.1-1.1.x86_64.rpm
+  - owncloud-client-l10n-1.7.1-1.1.x86_64.rpm
+
+  - 프로그램 설치 : #yum -y localinstall lib* own*
+
+03. 클라이언트 실행
+  - #owncloud &
+  - Server Address : http(s):192.168.239.128/owncloud
+  - trusted.... 체크
+  - 사용자 계정/비밀번호 입력
+  - 공유 폴더 설정
+04. 확인
+  - 설정한 공유 디렉터리에 파일/디렉터리 생성 후 실시간 동기화되는지 확인
+  - Linux, Windows 모두 확인(접속 시 지정한 디렉터리)
+  - 서버 공유 디렉터리: /var/www/html/owncloud/admin/data
