@@ -1,4 +1,5 @@
 // node_modules의 express 패키지를 가져온다.
+const { Console } = require("console");
 const express = require("express");
 const path = require("path");
 var app = express();
@@ -76,9 +77,24 @@ app.listen(8080, () => {
 // Sys.info();
 // Sys.path();
 
-const Moment = require("./src/Day04/moment.js");
+// const Moment = require("./src/Day04/moment.js");
 // Moment.today();
 // Moment.date();
 // Moment.format();
 // Moment.add();
-Moment.diff();
+// Moment.diff();
+
+
+// const ConsoleExam = require("./src/Day05/consoleExam.js");
+// ConsoleExam.time();
+// ConsoleExam.table();
+// ConsoleExam.log();
+// ConsoleExam.dir();
+// ConsoleExam.rest();
+
+const TimerExam = require("./src/Day05/timer.js");
+// TimerExam.timeout();
+// TimerExam.interval();
+// TimerExam.clear();
+// TimerExam.counter();
+TimerExam.downcounter();

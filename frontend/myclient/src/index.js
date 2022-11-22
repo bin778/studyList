@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 // import Request from './Request.jsx'
 import Day02A1 from './Day02/Day02A1'
+import ConsoleExam from './Day05/ConsoleExam.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,4 +15,9 @@ root.render(
   </React.StrictMode>
 );
 
-export default Day02A1;
+// export default Day02A1;
+ConsoleExam.time();
+// ConsoleExam.table();
+// ConsoleExam.log();
+// ConsoleExam.dir();
+// ConsoleExam.rest();
