@@ -25,9 +25,3 @@ tar -xvf pydio-core-6.0.2.tar
 384 라인: 업/다운로드 시간 <- vi /etc/php.ini
 672 라인: 첨부 파일 크기
 800 라인: 업다운 파일 크기
-
-
-[클라우드 서버]
-
-#yum -t install own* lib*
-#owncloud & <- 클라이언트 클라우드 접속
