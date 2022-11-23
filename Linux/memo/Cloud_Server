@@ -74,3 +74,4 @@
   - 설정한 공유 디렉터리에 파일/디렉터리 생성 후 실시간 동기화되는지 확인
   - Linux, Windows 모두 확인(접속 시 지정한 디렉터리)
   - 서버 공유 디렉터리: /var/www/html/owncloud/admin/data
+  - 클라이언트 접속 확인: #owncloud &
