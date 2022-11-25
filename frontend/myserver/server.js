@@ -35,29 +35,29 @@ app.get("/", (req, res) => {
 
 // 조회
 app.get("/api/hello",(req, res) => {
-    console.log("========================> /api/hello call");
-    console.log("서버에서 데이터를 가져온다.");
+    console.log("========================> [GET]/api/hello call req.query로 데이터를 가져온다.");
+    console.log(req.query);
     res.send("[GET]서버에서 데이터를 가져온다.");
 });
 
 // 삽입
 app.post("/api/hello",(req, res) => {
-    console.log("========================> /api/hello call");
-    console.log("서버에서 데이터를 삽입한다.");
+    console.log("========================> [POST]/api/hello call req.body로 데이터를 가져온다.");
+    console.log(req.body);
     res.send("[POST]서버에서 데이터를 삽입온다.");
 });
 
 // 삭제
 app.delete("/api/hello",(req, res) => {
-    console.log("========================> /api/hello call");
-    console.log("서버에서 데이터를 삭제한다.");
+    console.log("========================> [DELETE]/api/hello call req.body로 데이터를 가져온다.");
+    console.log(req.query);
     res.send("[DELETE]서버에서 데이터를 삭제한다.");
 });
 
 // 수정
 app.put("/api/hello",(req, res) => {
-    console.log("========================> /api/hello call");
-    console.log("서버에서 데이터를 수정한다.");
+    console.log("========================> [PUT]/api/hello call req.query로 데이터를 가져온다.");
+    console.log(req.body);
     res.send("[PUT]서버에서 데이터를 수정한다.");
 });
 
@@ -92,9 +92,14 @@ app.listen(8080, () => {
 // ConsoleExam.dir();
 // ConsoleExam.rest();
 
-const TimerExam = require("./src/Day05/timer.js");
+// const TimerExam = require("./src/Day05/timer.js");
 // TimerExam.timeout();
 // TimerExam.interval();
 // TimerExam.clear();
 // TimerExam.counter();
-TimerExam.downcounter();
+// TimerExam.downcounter();
+
+const SpreadExam = require("./src/Day05/SpreadExam.js");
+// SpreadExam.exam01();
+// SpreadExam.exam02();
+SpreadExam.exam03();
