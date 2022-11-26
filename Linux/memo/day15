@@ -1,0 +1,37 @@
+[Mail Server]
+1. 호스트 이름 변경
+  - /etc/hosts -> [192.168.XX.XXX mail.test.co.kr]
+
+  - /etc/hostname -> [mail.test.co.kr]
+
+  - /etc/sysconfig/network -> [hostname=mail.test.co.kr]
+
+-----------------------------------------------------------------------
+2. 프로그램 설치
+  - sendmail(메일 보내는 서버), dovecot(메일 받는 서버)  
+  #yum -y install sendmail*
+  #yum -y install dovecot*
+
+3. 환경 설정 파일
+  1) /etc/mail/sendmail.cf <- 주 환경 설정 파일
+   - 85줄: localhost -> test.co.kr, 265줄: Addr=127.0.0.1 -> Addr=0.0.0.0
+
+  2) /etc/dovecot/dovecot.conf <- 메일 받기 서버, 환경설정 파일
+   - 24, 30, 33번째 줄 주석 해제
+
+  3) /etc/dovecot/10-auth.conf
+   - 10, 100번째 줄 주석 해제
+
+  4) /etc/dovecot/10-mail.conf
+   - 30번째 줄: mail_location = mbox:~/mail:INBOX=/var/spool/mail/%u:INDEX=MEMORY
+   - 61, 166번째 줄 주석 해제
+
+  5) /etc/dovecot/10-auth.conf
+   - 8, 14, 15번째 줄 주석 해제
+   
+-----------------------------------------------------------------------
+[DNS Server 도메인 추가]
+
+/var/named/test.co.kr.zone
+        IN      MX      10      mail.test.co.kr.
+mail    IN      A       192.168.XX.XXX
