@@ -53,3 +53,7 @@ mail    IN      A       192.168.XX.XXX
     connected:192.168.XX.XXX    RELAY
     
     #makemap hash access < access
+
+-----------------------------------------------------------------------
+
+[Web Proxy]
