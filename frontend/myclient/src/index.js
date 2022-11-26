@@ -6,6 +6,7 @@ import App from './App';
 import Day02A1 from './Day02/Day02A1.jsx'
 import HttpExam from './Day05/HttpExam.jsx'
 import ConsoleExam from './Day05/ConsoleExam.jsx';
+import PromiseExam from './Day06/PromiseExam.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,3 +24,9 @@ root.render(
 // ConsoleExam.log();
 // ConsoleExam.dir();
 // ConsoleExam.rest();
+// PromiseExam.callback();
+// PromiseExam.callbackFunc();
+// PromiseExam.promise();
+// PromiseExam.promiseCatch();
+// PromiseExam.promiseThen();
+PromiseExam.promiseAsync();
