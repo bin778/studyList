@@ -68,8 +68,33 @@
   @gnome-desktop
   @input-methods
   @internet-browser
-  @java-flatform
+  @java-platform
   @multimedia
   @network-file-system-client
   @X11
   %end
+------------------------------------------------------------------------------
+[VNC Server]
+1. 프로그램 설치
+  프로그램: tigervnc-server*
+
+  #yum -y install tigervnc-server*
+vncserver@.service
+vncserver@:1.service
+
+2. VNC 패스워드 설정
+  #su - test
+  $vncpasswd
+
+3. 서버 시작
+  #systemctl daemon-reload
+  #systemctl restart vncserver@:1.service
+
+4. 클라이언트 프로그램 설치(리눅스)
+  #yum -y install tigervnd 
+  
+5. 클라이언트 프로그램 설치(윈도우)
+  - 구글: tigervnc 다운로드
+  
+6. 접속 방법
+  - 주소 입력창: 192.168.XX.XXX:1 -> 패스워드
