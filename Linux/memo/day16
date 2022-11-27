@@ -1,0 +1,75 @@
+[PXE Server 구축]
+1. 프로그램 설치
+  - 프로그램: syslinux(부팅 파일), dhcp, tftp-server, vsftpd, xinetd
+
+2. DHCP Server 환경 설정
+  -/etc/dhcp/dhcpd.conf
+------------------------------------------------------------------------------
+<추가>
+  allow   booting;
+  allow   bootp;
+  next-server     192.168.49.150;
+  filename        "pxelinux.0";
+------------------------------------------------------------------------------
+
+3. TFTP Server 환경 설정 구축
+  -/etc/xinetd.d/tftp
+    disable = no
+
+4. FTP Server 환경 설정/구축
+
+5. VMWare에서 CentOS7 ISO 파일 cd/dvd-ROM(VM -> Settings): connected 체크
+
+6. 기존 CD=ROM 언마운트: #umount /dev/cdrom
+
+7. CentOS 7 ISO 파일 마운트: #mount /dev/cdrom /var/ftp/pub
+
+8. 부팅 파일 복사
+  #cp /var/ftp/pub/images/pxeboot/vmlinuz /var/lib/tftpboot
+  #cp /var/ftp/pub/images/pxeboot/initrd.img /var/lib/tftpboot
+  #cp /usr/share/syslinux/pxelinux.0 /var/lib/tftpboot
+
+9. 부팅 관련 설정 파일 디렉토리 생성
+  #mkdir /var/lib/tftpboot/pxelinux.cfg
+  #cd /var/lib/tftpboot/pxelinux.cfg
+
+  #touch default
+
+10. dnsmasq 중지
+  #systemctl stop dnsmasq
+  #systemctl disable dnsmasq
+
+------------------------------------------------------------------------------
+  #systemctl restart dhcpd
+  #systemctl restart vsftpd
+  #systemctl restart xinetd
+
+  #systemctl enable dhcpd
+  #systemctl enable vsftpd
+  #systemctl enable xinetd
+
+------------------------------------------------------------------------------
+11. 퀵 스타트
+  - 프로그램: system-config-kickstart, system-config-keyboard
+
+  - 설정 파일 저장: /var/ftp/centos.cfg
+  
+  #vi centos.cfg
+  <수정>
+  part swap --fstype="swap" --size=2048
+  part / --asprimary --fstype="xfs" --grow --size=1
+  
+  <설치 패키지 선택>
+  %packages
+  @base
+  @core
+  @directory-client
+  @fonts
+  @gnome-desktop
+  @input-methods
+  @internet-browser
+  @java-flatform
+  @multimedia
+  @network-file-system-client
+  @X11
+  %end
