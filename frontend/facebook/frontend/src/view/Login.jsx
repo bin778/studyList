@@ -1,5 +1,5 @@
-import IMG_LOGO from "../images/facebook-logo.svg"
-import {Input, Image, Title, Button, Linebar} from "./Component.jsx" 
+import IMG_LOGO from "../images/facebook-logo.svg";
+import {Input, Image, Title, Button, Linebar} from "./Component.jsx";
 
 export default function Login(props) {
     return (
