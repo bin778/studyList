@@ -26,22 +26,10 @@ export default function Header(props) {
       </div>
       <div className="head-nav">
         <nav className="">
-          <span className={`btn-box ${props.name === "home" ? 'active' : ''}`} onClick={() => { window.location.href = "/home" }} >
-            <img src={HOME_ICON} />
-            <span className="btn-line"></span>
-          </span>
-          <span className={`btn-box ${props.name === "video" ? 'active' : ''}`} onClick={() => { window.location.href = "/video" }}>
-            <img src={YOUTUBE_ICON} />
-            <span className="btn-line"></span>
-          </span>
-          <span className={`btn-box ${props.name === "people" ? 'active' : ''}`} onClick={() => { window.location.href = "/people" }} >
-            <img src={PEOPLE_ICON} />
-            <span className="btn-line"></span>
-          </span>
-          <span className={`btn-box ${props.name === "game" ? 'active' : ''}`} onClick={() => { window.location.href = "/game" }} >
-            <img src={GAME_ICON} />
-            <span className="btn-line"></span>
-          </span>
+          <MenuIcon src={HOME_ICON} name={"home"} tagname={props.name} />
+          <MenuIcon src={YOUTUBE_ICON} name={"video"} tagname={props.name} />
+          <MenuIcon src={PEOPLE_ICON} name={"people"} tagname={props.name} />
+          <MenuIcon src={GAME_ICON} name={"game"} tagname={props.name} />
         </nav>
       </div>
       <div className='head-side'>
@@ -57,4 +45,16 @@ export default function Header(props) {
       </div>
     </div>
   )
+}
+
+const MenuIcon = (props) => {
+    const {src, name, tagname} = props;
+
+    return <>
+        <span className={`btn-box ${tagname === name ? "active" : ''}`} 
+        onClick={() => window.location.href = `/${name}`}>
+            <img src={src} />
+            <span className="btn-line"></span>
+        </span>
+    </>
 }
