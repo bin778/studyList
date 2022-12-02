@@ -47,12 +47,12 @@ const onClickRegist = () => {
     console.log(name, userid, password, year, month, day, gender);
 
     if(!name) { alert("이름을 입력하세요."); return; }
-    if(!userid) alert("ID를 입력하세요.");
-    if(!password) alert("패스워드를 입력하세요.");
-    if(!year) alert("출생년도를 입력하세요.");
-    if(!month) alert("출생월을 입력하세요.");
-    if(!day) alert("츨생일을 입력하세요.");
-    if(!gender) alert("성별을 입력하세요.");
+    if(!userid) { alert("이메일 또는 전화번호를 입력하세요."); return; }
+    if(!password) { alert("비밀번호를 입력하세요."); return; }
+    if(!year) { alert("출생년도를 입력하세요."); return; }
+    if(!month) { alert("출생월을 입력하세요."); return; }
+    if(!day) { alert("츨생일을 입력하세요."); return; }
+    if(!gender) { alert("성별을 입력하세요."); return; }
 
     const params = { name, userid, password, year, month, day, gender }
 
