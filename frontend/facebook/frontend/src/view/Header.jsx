@@ -18,6 +18,11 @@ export default function Header(props) {
     }
   }
 
+  const onClickLogout = () => {
+    window.location.href = "/";
+    alert("로그아웃 되었습니다.");
+}
+
   return (
     <div className="header">
       <div className="head-logo">
@@ -40,7 +45,7 @@ export default function Header(props) {
             <img src={ALARM_ICON} />
         </span>
         <span className='btn-box'>
-            <img src={MORE_ICON} />
+            <img src={MORE_ICON} onClick={onClickLogout} />
         </span>
       </div>
     </div>
