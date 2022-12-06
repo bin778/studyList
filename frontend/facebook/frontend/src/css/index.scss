@@ -379,3 +379,128 @@ header {
     }
   }
 }
+
+.home-layer {
+  background-color: #f0f2f5;
+  height: 4000px;
+  width: 800px;
+  margin: 10px auto;
+
+  .list {
+    list-style: none;
+  }
+
+  li {
+    margin: 20px 0;
+  }
+
+  .card {
+    border-radius: 8px;
+    background-color: white;
+    /* border: 1px solid #eee;  */
+    box-shadow: 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .head {
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  .head .logo {
+    height: 40px;
+    border-radius: 50px;
+    display: inline-block;
+  }
+  .head .title {
+    font-weight: bold;
+    position: relative;
+    margin-left: 10px;
+  }
+  .head .more img {
+    height: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    float: right;
+  }
+  .head .more img:hover {
+    background-color: rgb(240, 240, 240);
+  }
+  .head .text {
+    padding-top: 10px;
+    white-space: pre-line;
+  }
+
+  .body {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .body .image {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .body .text {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    white-space: pre-line;
+  }
+
+  .body button {
+    height: 40px;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .body button:hover {
+    background-color: rgb(220, 220, 220);
+  }
+
+  p.blue {
+    color: #1877f2;
+  }
+  p.grey {
+    color: #65676b;
+  }
+  p.bold {
+    font-weight: bold;
+  }
+  p.sm {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .foot {
+    height: 40px;
+    font-size: 0px;
+    display: flex;
+    flex-direction: row;
+  }
+  .foot img {
+    height: 20px;
+  }
+  .foot .btn-box {
+    display: flex;
+    flex-grow: 1;
+    font-size: 16px;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px 0;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .foot .btn-box:hover {
+    background-color: rgb(240, 240, 240);
+  }
+  .foot .btn-box > div {
+    margin: 0 auto;
+    display: flex;
+  }
+  .foot .btn-box img {
+    margin-right: 10px;
+  }
+}

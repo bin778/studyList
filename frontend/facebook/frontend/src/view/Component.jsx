@@ -10,9 +10,9 @@ export const Input = (props) => {
 }
 
 export const Image = (props) => {
-    const {src, alt} = props;
+    const {src, alt, className = ""} = props;
 
-    return <div className="my-image">
+    return <div className={`my-image ${className}`}>
         <img src={src} alt={alt}></img>
     </div>
 }
