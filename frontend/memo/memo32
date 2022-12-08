@@ -83,3 +83,5 @@ Front-End 이미지 서버
 3. express 서버에서 기본적으로 제공되는 공개된 메인 url은 public부터 시작
 	app.use(express.static(path.join(__dirname, 'public')))에 의하여 설정
 4. 그리고 image 주소 /image/game-1.jpg 이런 식으로 변경
+
+Axios 사용법: https://axios-http.com/kr/docs/intro
