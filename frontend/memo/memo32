@@ -84,4 +84,4 @@ Front-End 이미지 서버
 	app.use(express.static(path.join(__dirname, 'public')))에 의하여 설정
 4. 그리고 image 주소 /image/game-1.jpg 이런 식으로 변경
 
-Axios 사용법: https://axios-http.com/kr/docs/intro
+AXIOS 사용법: https://axios-http.com/kr/docs/intro
