@@ -34,6 +34,44 @@
 
 테이블 관련 용어
 
+테이블 데이터베이스(스키마) 생성 관련 명령어
+	데이터베이스 생성   create database 데이터베이스명;
+	데이터베이스 조회   show databases; or show schemas;
+	데이터베이스 삭제   drop database 데이터베이스명;
+
+
+데이블 생성 관련 명령어
+	테이블 생성   create table 테이블명 ( 
+	컬러명 데이터유형 제약조건,
+	컬러명 데이터유형 제약조건,
+	)
+
+      create table users (
+         userid int not null primary key,
+         name varchar(50) not null,
+         email varchar(100) null,
+         age int null,
+      )
+
+테이블 데이터 관련 명령어
+	   데이터 입력
+	   insert into 테이블명 (컬럼, 컬럼, ….) values (값, 값, …);
+	   
+데이터 조회
+      select * from 테이블명;      전체 컬럼 조회
+      select 컬럼 from 테이블명;   특정 컬럼 조회
+      select * from where 조건절;   조건 검색
+      
+데이터 수정
+      update 테이블명 set 컬럼 = 값 where 조건절;
+      조건에 해당하는 데이터를 수정한다.
+      조건을 설정하지 않을 경우 모든 데이터가 수정된다(주의).
+      
+데이터 삭제
+	delete from 테이블명 where 조건절;
+	조건에 해당하는 데이터를 삭제한다.
+	조건을 설정하지 않을 경우 모든 데이터가 삭제된다.(주의)
+	
 테이블(table or relation)   
 	관계형 데이터베이스에서 정보를 구분하여 저장하는 기본 단위
 
