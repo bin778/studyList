@@ -136,7 +136,6 @@ export default function Regist(props) {
       }
     });
   };
-
   return (
     <div className="regist-layer">
       {/* 상단 로고 이미지 */}
