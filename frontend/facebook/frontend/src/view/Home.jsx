@@ -20,7 +20,7 @@ export default function Home(props) {
   }, []);
 
   const onRefreshHome = () => {
-    console.log("onrefresh call!");
+    console.log("onrefresh call");
     axios.get("/api/home").then((res) => {
       console.log(res.data);
       setArray(res.data.result);
@@ -53,9 +53,20 @@ export default function Home(props) {
 const CardBox = (props) => {
   const { homeid, likecount, title, subtitle, tags, url, text, image } =
     props.value;
+  const [show, setShow] = useState(false);
+  const [comment, setComment] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/api/home/comment", { params: { homeid: homeid } })
+      .then((res) => {
+        console.log(res.data);
+        setComment(res.data.result);
+      });
+  }, []);
 
   const onClickLike = () => {
-    // console.log(props.value);
+    // console.log(props.value)
     axios
       .put("/api/home/like", { homeid: homeid, likecount: likecount })
       .then((res) => {
@@ -63,7 +74,18 @@ const CardBox = (props) => {
       });
   };
 
-  const onClickComment = () => {};
+  const onClickComment = () => {
+    console.log("show comment box ====> " + show);
+    setShow(!show); //true => false, false => true
+  };
+
+  const onRefresh = () => {
+    axios
+      .get("/api/home/comment", { params: { homeid: homeid } })
+      .then((res) => {
+        setComment(res.data.result);
+      });
+  };
 
   return (
     <li>
@@ -115,7 +137,104 @@ const CardBox = (props) => {
             </div>
           </div>
         </div>
+        {show === true && (
+          <CommentBox homeid={homeid} onRefresh={onRefresh} list={comment} />
+        )}
       </div>
     </li>
+  );
+};
+
+const CommentBox = (props) => {
+  const [text, setText] = useState("");
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const onChangeText = (event) => {
+    setText(event.target.value);
+  };
+
+  const onClickSave = () => {
+    axios
+      .post("/api/home/comment", { homeid: props.homeid, text: text })
+      .then((res) => {
+        console.log(res);
+        setText("");
+        props.onRefresh && props.onRefresh();
+      });
+  };
+
+  const onClickRemove = (cmtid) => {
+    axios
+      .delete("/api/home/comment", { params: { cmtid: cmtid } })
+      .then((res) => {
+        props.onRefresh && props.onRefresh();
+      });
+  };
+
+  const onClickEdit = (item) => {
+    setSelectedItem(item);
+  };
+
+  const onChangeEdit = (event) => {
+    console.log(event.target.value);
+    const item = { ...selectedItem };
+    item.text = event.target.value;
+    setSelectedItem(item);
+  };
+
+  const onClickUpdate = () => {
+    axios
+      .put("/api/home/comment", {
+        cmtid: selectedItem.cmtid,
+        text: selectedItem.text,
+      })
+      .then((res) => {
+        setSelectedItem(null);
+        props.onRefresh && props.onRefresh();
+      });
+  };
+
+  return (
+    <div className="comment-box">
+      <ul>
+        {props.list &&
+          props.list.map((item) => {
+            return (
+              <li key={item.cmtid}>
+                {item.text}
+                <div className="buttons">
+                  <Button
+                    type="primary"
+                    onClick={() => onClickEdit(item)}
+                    text="편집"
+                  ></Button>
+                  <Button
+                    type="secondary"
+                    onClick={() => onClickRemove(item.cmtid)}
+                    text="삭제"
+                  ></Button>
+                </div>
+              </li>
+            );
+          })}
+      </ul>
+      <div className="input-box">
+        {selectedItem ? (
+          <>
+            <textarea onChange={onChangeEdit} value={selectedItem.text} />
+            <Button type="secondary" onClick={onClickUpdate} text="저장" />
+          </>
+        ) : (
+          <>
+            <textarea
+              placeholder="여기에 내용을 입력하세요"
+              onChange={onChangeText}
+              value={text}
+            />
+            <Button type="primary" onClick={onClickSave} text="저장" />
+          </>
+        )}
+      </div>
+    </div>
   );
 };
