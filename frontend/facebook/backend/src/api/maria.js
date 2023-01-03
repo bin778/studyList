@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const moment = require("moment");
 
 const conn = {
   host: "127.0.0.1",
@@ -31,8 +32,8 @@ const queryFunc = (sql) => {
 Maria.findAccountid = (params) => {
   return new Promise(async (resolve, reject) => {
     const { email } = params;
-
     const sql = `select * from users where email='${email}';`;
+
     const result = await queryFunc(sql);
     resolve(result && result[0] ? result[0] : null);
   });
@@ -41,8 +42,8 @@ Maria.findAccountid = (params) => {
 Maria.deleteUser = (params) => {
   return new Promise(async (resolve, reject) => {
     const { userid, email } = params;
-
     const sql = `delete from users where userid='${userid}' and email='${email}'`;
+
     const result = await queryFunc(sql);
     resolve(result && result.affectedRows > 0 ? true : false);
   });
@@ -51,8 +52,8 @@ Maria.deleteUser = (params) => {
 Maria.checkUser = (params) => {
   return new Promise(async (resolve, reject) => {
     const { userid } = params;
-
     const sql = `select * from users where userid='${userid}';`;
+
     const result = await queryFunc(sql);
     resolve(result);
   });
@@ -103,10 +104,9 @@ Maria.selectHome = (params) => {
 Maria.updateLike = (params) => {
   return new Promise(async (resolve) => {
     const { likecount, homeid } = params;
-
     const sql = `update home set likecount='${
       likecount + 1
-    }' where homeid='${homeid}';`;
+    }' where homeid="${homeid}";`;
     const result = await queryFunc(sql);
     resolve(result);
   });
@@ -115,8 +115,7 @@ Maria.updateLike = (params) => {
 Maria.findHome = (params) => {
   return new Promise(async (resolve) => {
     const { homeid } = params;
-
-    const sql = `select * from home where homeid='${homeid}';`;
+    const sql = `select * from home where homeid="${homeid}"`;
     const result = await queryFunc(sql);
     resolve(result);
   });
@@ -126,19 +125,17 @@ Maria.findHome = (params) => {
 Maria.selectComment = (params) => {
   return new Promise(async (resolve) => {
     const { homeid } = params;
-
-    const sql = `select * from comment where homeid='${homeid}';`;
+    const sql = `select * from comment where homeid="${homeid}"`;
     const result = await queryFunc(sql);
     resolve(result);
   });
 };
 
 // 댓글 삽입
-Maria.InsertComment = (params) => {
+Maria.insertComment = (params) => {
   return new Promise(async (resolve) => {
     const { homeid, text } = params;
-
-    const sql = `insert into comment (homeid, text) values ('${homeid}', '${text}');`;
+    const sql = `insert into comment (homeid, text) values('${homeid}', '${text}');`;
     const result = await queryFunc(sql);
     resolve(result);
   });
@@ -148,19 +145,69 @@ Maria.InsertComment = (params) => {
 Maria.deleteComment = (params) => {
   return new Promise(async (resolve) => {
     const { cmtid } = params;
-
-    const sql = `delete from comment where cmtid='${cmtid}';`;
+    const sql = `delete from comment where cmtid="${cmtid}";`;
     const result = await queryFunc(sql);
     resolve(result);
   });
 };
 
-// 댓글 수정
 Maria.updateComment = (params) => {
   return new Promise(async (resolve) => {
     const { cmtid, text } = params;
     console.log(params);
-    const sql = `update comment set text='${text}' where cmtid='${cmtid}';`;
+    const sql = `update comment set text='${text}' where cmtid="${cmtid}";`;
+    const result = await queryFunc(sql);
+    resolve(result);
+  });
+};
+
+// 게시판 목록 조회
+Maria.selectBoard = (params) => {
+  return new Promise(async (resolve) => {
+    const sql = `select * from board`;
+    const result = await queryFunc(sql);
+    console.log(result);
+    resolve(result);
+  });
+};
+
+// 게시판 항목 조회
+Maria.selectBoardItem = (params) => {
+  return new Promise(async (resolve) => {
+    const { boardid } = params;
+    const sql = `select * from board where boardid="${boardid}"`;
+    const result = await queryFunc(sql);
+    resolve(result && result[0]);
+  });
+};
+
+// 게시판 항목 삽입
+Maria.insertBoard = (params) => {
+  return new Promise(async (resolve) => {
+    const { title, text } = params;
+    const today = moment().format("YYYY-MM-DD");
+    const sql = `insert into board (title, text, regdate) values('${title}', '${text}', '${today}');`;
+    const result = await queryFunc(sql);
+    resolve(result);
+  });
+};
+
+// 게시판 항목 삭제
+Maria.deleteBoard = (params) => {
+  return new Promise(async (resolve) => {
+    const { boardid } = params;
+    const sql = `delete from board where boardid="${boardid}";`;
+    const result = await queryFunc(sql);
+    resolve(result);
+  });
+};
+
+// 게시판 항목 편집
+Maria.updateBoard = (params) => {
+  return new Promise(async (resolve) => {
+    const { boardid, text, title } = params;
+    console.log(params);
+    const sql = `update board set text='${text}', title='${title}' where boardid="${boardid}";`;
     const result = await queryFunc(sql);
     resolve(result);
   });
