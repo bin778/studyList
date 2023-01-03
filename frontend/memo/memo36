@@ -1,5 +1,5 @@
-mariadb
-	mysql과 동일한 소스코드를 기반으로 한 오픈소스 RDBMS
+MariaDB
+	MySQL과 동일한 소스코드를 기반으로 한 오픈소스 RDBMS
 	즉, RDBMS는 (관계형 데이터베이스 관리 시스템)이라고 한다.
 
 	다운로드 : https://mariadb.org
@@ -9,13 +9,13 @@ mariadb
 	사용자 환경 설정
 		root 계정에 대한 비밀번호를 설정
 
-Mysql 모듈 설치
+MySQL 모듈 설치
 	node install mysql;
 
-Mysql 모듈 연동
+MySQL 모듈 연동
 	const mysql = require('mysql');
 
-mysql 접속 설정 정보
+MySQL 접속 설정 정보
 
 const conn = { 
     host: '127.0.0.1',
@@ -25,7 +25,7 @@ const conn = {
     database: 'facebook'
 };
 
-Mysql 모듈 기본 사용법
+MySQL 모듈 기본 사용법
 	1. DB 커넥션 생성
 	let connection = mysql.createConnection(conn);
 
