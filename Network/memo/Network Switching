@@ -1,9 +1,9 @@
-지연(delay)
+지연(Delay)
 transmission delay(전송지연) : 메세지나 패킷을 매체에 싣는데 걸리는 시간. 메세지가 클수록 패킷 크기 또한 크다.
 progation dealy(전파지연) : sender와 receiver 사이의 거리, 걸리는 시간, 즉 sender에서 receiver까지 가는데 걸린 시간.
 queing dealy(대기지연) : Processing delay(처리 지연)라고도 하며, 라우팅하는데 걸리는 시간. 혼잡도가 심하면 라우팅하는데 오랜 시간이 걸린다.
 
-네트워크 스위칭(network switching)
+네트워크 스위칭(Network Switching)
 교환시스템의 종류
 - 전용 회선 방식 : 송신, 수신 호스트가 전용 통신 선로로 데이터 전송
 - 교환 회선 방식 : 전송 선로 하나를 다수의 사용자가 공유
