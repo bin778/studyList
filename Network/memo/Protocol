@@ -12,7 +12,7 @@ IP              IP
 LAN 카드        LAN 카드
    이더넷(Ethernet)
    
-인터네트워킹(Internetworking) : 네트워크 끼리의 연결
+인터네트워킹(Internetworking) : 네트워크끼리의 연결
 게이트웨이(Gateway) : 인터네트워킹을 수항하는 시스템
 
 프로토콜(Protocol) : 서로 다른 호스트에 위치한 동일 계층 끼리의 통일 규칙. 통신 시스템이 데이터를 교환하기 위해 사용되는 통신 규칙
