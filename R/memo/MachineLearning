@@ -10,7 +10,7 @@ HTML(HyperText Markup Language): 웹 문서를 만드는 언어
 
 HTML의 구조
 <html> -> 웹 문서의 시작과 끝을 나타냄
-	<head> -> 이 페이지에 관련된 메타정보
+	<head> -> 이 페이지에 관련된 메타 정보
 
 	</head>
 	<body> -> 본문: 실제 웹 페이지에 나타내는 내용
