@@ -4,7 +4,7 @@
 
 오류 검출: 역방향 오류 복구(Backward Error Correction), 재전송 방식을 이용해 오류 복구(네트워크에서 일반적으로 사용)
 
-패러티(Parity) 비트: 1 Byte(8Bit) = 7 Bit(ASCII) + 1 Parity Bite
+패러티(Parity) 비트: 1Byte(8Bit) = 7Bit(ASCII) + 1Parity Bite
 - 짝수 패러티: 데이터 끝에 패러티 1비트를 추가해 전체 1의 개수를 짝수로 만듬.
 - 홀수 패러티: 1의 개수를 홀수로 만든다.
 
