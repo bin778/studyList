@@ -23,23 +23,23 @@ WAN(Wide Area Network)
 - 점대점으로 연결된 WAN 환경을 전송과 더불어 교환 기능이 반드시 필요
 - WAN은 호스트 사이의 거리가 멀기 때문에 연결의 수가 증가할수록 전송매체 비용이 많이 듬. -> 많은 호스트를 묶어야 되므로
 
-정리 LAN vs WAN
-연결방식
+정리: LAN vs WAN
+1. 연결방식
 LAN : Multi-point
 WAN : Point-to-Point
 
-매체
+2. 매체
 LAN : 공유
 WAN : 전송
 
-전송방식
+3. 전송방식
 LAN : broadcast(브로드캐스팅)
 WAN : store-and-forward(전송 및 전달)
 
-프로토콜
+4. 프로토콜
 LAN : 2계층
 WAN : 3계층
 
-장비
+5. 장비
 LAN : bridge
 WAN : router
