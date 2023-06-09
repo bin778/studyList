@@ -1,0 +1,55 @@
+# CoLab에서 사용할 장치(GPU 사용)
+cuda
+
+# 1. 손글씨 이미지셋 모델을 eval() 함수를 사용해 모델을 추론한다.
+# 2. 추론한 모델을 NMIST 테스트 모델에 로딩하고 할당한다.
+# 3. 할당된 NMIST 테스트 모델에 대한 정확도를 측정하고 모델을 학습한다.
+Accuracy: 0.9834
+
+# 학습한 모델에 대한 정확도를 측정한다.
+# CPU 모델하고 비교하면 CUDA가 더 높은 정확도를 가지고 있다고 볼 수 있다.
+Accuracy: 1.0000
+
+# 학습한 결과값 출력
+# Figure: 이미지 해상도
+# Predict: 모델 예측값
+Figure(640x480)
+Predict: 7.0
+Figure(640x480)
+Predict: 2.0
+Figure(640x480)
+Predict: 1.0
+Figure(640x480)
+Predict: 0.0
+Figure(640x480)
+Predict: 4.0
+Figure(640x480)
+Predict: 1.0
+Figure(640x480)
+Predict: 4.0
+Figure(640x480)
+Predict: 9.0
+Figure(640x480)
+Predict: 5.0
+Figure(640x480)
+Predict: 9.0
+Figure(640x480)
+Predict: 0.0
+Figure(640x480)
+Predict: 6.0
+Figure(640x480)
+Predict: 9.0
+Figure(640x480)
+Predict: 0.0
+Figure(640x480)
+Predict: 1.0
+Figure(640x480)
+Predict: 5.0
+Figure(640x480)
+Predict: 9.0
+Figure(640x480)
+Predict: 7.0
+Figure(640x480)
+Predict: 3.0
+Figure(640x480)
+Predict: 4.0
