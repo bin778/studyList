@@ -6,5 +6,5 @@ function func(n: number) {
 }
 
 console.log(func(num));
-// 타입이 다르면 매개변수에 전달할 수 없다.
+// 타입스크립트는 타입이 다르면 매개변수에 전달할 수 없다.
 // console.log(func(str));
