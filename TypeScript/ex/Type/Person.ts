@@ -1,3 +1,4 @@
+// 구조적 서브타이핑을 함수의 매개변수에도 적용된다.
 class Person {
   name: String;
   age: number;
