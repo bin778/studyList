@@ -118,8 +118,8 @@ const errorArr: ErrorFeedbackType[] = [
 type ProductPrice = '10000' | '20000' | '5000';
 
 const getProductName = (productPrice: ProductPrice): string => {
-  if(ProductPrice === '1000') return '배민상품권 1만원';
-  if(ProductPrice === '2000') return '배민상품권 2만원';
+  if(productPrice === '10000') return '배민상품권 1만원';
+  if(productPrice === '20000') return '배민상품권 2만원';
   // if(ProductPrice === '5000') return '배민상품권 5천원';
   else {
     exhaustiveCheck(productPrice);
