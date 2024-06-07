@@ -1,0 +1,35 @@
+React
+
+
+클래스 컴포넌트
+클래스 컴포넌트는 React.Component 혹은 React.PureComponent를 상속 받아 구현하며, 각 타입 매개변수는 위처럼 정의되어 있으며, P와 S는 각각 props와 state를 의미한다.
+
+함수 표현식
+함수 표현식을 사용할 때 React.FC로 타입을 많이 지정한다. React.FC는 FunctionComponent의 약자로 리액트에서 함수 컴포넌트의 타입 지정을 위해 제공되는 타입이다.
+
+children props 타입 지정
+제네릭 P 타입 매개변수로 Props 객체 타입을 전달하면 된다. PropsWithChildren<P>을 사용하면 기본적으로 children은 ReactNode | undefined가 된다.
+children의 범위를 축소하고 싶으면 PropsWithChildren<P> 타입 정의의 교차 타입의 성질을 이용하면 된다.
+
+React 컴포넌트(반환)
+React.ReactElement, JSX.Element, React.ReactNode는 모두 리액트 요소를 나타내는 타입이다. 리액트 컴포넌트는 호출시 결과로 리액트 요소를 반환하므로, 컴포넌트의 반환 타입으로 주로 사용한다.
+
+React.ReactElement
+JSX는 ReactElement를 생성하기 위한 문법이며, Babel과 같은 트랜스파일러는 JSX 문법을 createElement 메서드 호출문으로 변환하여 아래와 같이 React Element 객체를 생성한다.
+리액트는 이런 식으로 만들어진 React Element 객체를 읽어서 DOM을 구성한다. 가상 DOM의 요소는 ReactElement 객체 형태로 저장된다. 
+ReactElement는 JSX.Element 예시를 확장하여 추론 관점에서 더 유용하게 활용할 수 있다.
+ReactElement의 제네릭으로 props를 설정할 수 있기 때문에 prop으로 받은 컴포넌트의 props에 접근할 때 목록이 추론된다.
+
+JSX.Element
+JSX는 React Element를 생성하기 위한 문법이며, Babel과 같은 트랜스파일러는 JSX 문법을 createElement 메서드 호출문으로 변환하여 아래와 같이 React Element 객체를 생성한다.
+JSX.Element는 ReactElement를 상속 받아서 확장하고 있는 타입이며, props와 type 필드를 any로 지정한다. 
+global 네임스페이스에 정의되어 있어 외부 라이브러리에서 컴포넌트 타입을 재정의할 수 있는 유연성을 제공할 수 있다.
+
+React.ReactNode
+ReactNode는 ReactElement 외에도 boolean, string, number 등의 여러 타입을 포함하고 있다. 이는 리액트 컴포넌트로 반환 가능한 모든 타입을 수용하도록 설계되어 있다.
+JSX 문법을 때로는 string, number, undefined와 같이 어떤 타입이든 children prop으로 지정할 수 있게 하고 싶다면, ReactNode 타입으로 children을 선언하면 된다.
+ReactNode는 리액트 컴포넌트를 다양한 형태를 가질 수 있게 하고 싶을 때 유용하게 사용된다.
+
+리액트에서 기본 HTML 요소 타입 활용
+HTML 태그의 속성 타입을 활용하는 대표적인 2가지 방법은 리액트의 DetailedHTMLProps와 ComponentPropsWithoutRef 타입을 활용하는 것이다.
+이외에도 HTMLProps, ComponentPropsWithRef 등 HTML 태그의 속성을 지원하기 위한 다양한 타입이 있다.
