@@ -1,21 +1,8 @@
-const Select = ({ onChange, options, selectedOption }) => {
-  const handleChange = (e) => {
-    const selected = Object.entries(options).find(
-      ([, value]) => value === e.target.value,
-    )?.[0];
-    onChange?.(selected);
-  };
-  
-  return (
-    <select
-      onChange={handleChange}
-      value={selectedOption && options[selectedOption]}
-    >
-      {Object.entries(options).map(([key, value]) =>(
-        <option key={key} value={value}>
-          {value}
-        </option>      
-      ))}
-    </select>
-  );
-};
+/**
+ * Select 컴포넌트
+ * @param {Object} props - Select 컴포넌트로 넘겨주는 속성
+ * @param {Object} props.option - { [key: string]: string } 형식으로 이루어진 option 객체
+ * @param {string | undefined} props.selectedOption - 현재 선택된 option의 key 값 
+ * @param {function} props.onChange - select 값이 변경되었을 때 불리는 callBack 함수 (optional) *
+ * @return {JSX.Element} 
+ * */
