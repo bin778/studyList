@@ -1,3 +1,13 @@
+function useState<S>(
+  initialState: S | (() => S)
+): [S, Dispatch<SetStateAction<S>>];
+
+type Dispatch<A> = (value: A) => void;
+type SetStateAction<S> = S | ((prevState: S) => S);
+
+// useState의 반환튜플 첫 번째 요소 : useState로 관리할 상태 타입 S
+// useState의 반환튜플 두 번째 요소 : 상태를 업데이트할 함수 Dispatch
+
 function useEffect(effect: EffectCallback, deps?: DependencyList): void;
 type DependencyList = ReadonlyArray<any>;
 type EffectCallback = () => void | Destructor;
