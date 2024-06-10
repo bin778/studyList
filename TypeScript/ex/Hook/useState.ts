@@ -1,3 +1,7 @@
+function useEffect(effect: EffectCallback, deps?: DependencyList): void;
+type DependencyList = ReadonlyArray<any>;
+type EffectCallback = () => void | Destructor;
+
 import { useState } from "react";
 
 // memberList의 타입 선언
