@@ -39,3 +39,5 @@ function App() {
       <ComponentA />
       <ComponentB />
     </StateProvider.Provider>
+  }
+}
